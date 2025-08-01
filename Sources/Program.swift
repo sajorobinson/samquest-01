@@ -30,7 +30,7 @@ struct Main {
         while !engine.state.isGameOver {
             let actions = engine.availableActions()
             print("=========================")
-            print("||      SamQuest02     ||")
+            print("||      SamQuest01     ||")
             print("=========================")
             print("Choose an action:")
             for (i, action) in actions.enumerated() {
