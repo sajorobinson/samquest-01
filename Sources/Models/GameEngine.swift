@@ -16,9 +16,8 @@ class GameEngine {
         if pos.x - 1 >= state.mapBounds.minX { actions.append(.move(.west)) }
 
         let nearbyCreatures = state.creatures.filter {
-            $0 !== state.player &&
-            abs($0.position.x - pos.x) == 0 &&
-            abs($0.position.y - pos.y) == 0
+            $0 !== state.player && abs($0.position.x - pos.x) == 0
+                && abs($0.position.y - pos.y) == 0
         }
 
         for creature in nearbyCreatures {
@@ -26,7 +25,7 @@ class GameEngine {
             if creature.behavior == .hostile {
                 actions.append(.attack(target: creature))
             }
-            
+
             // Only allow talk if on same tile (for now)
             if creature.position == pos {
                 actions.append(.talk(to: creature))
@@ -56,7 +55,10 @@ class GameEngine {
             let damage = 10
             creature.health -= damage
             let result = "\(state.player.name) attacks \(creature.name) for \(damage) damage."
-            let healthStatus = creature.health > 0 ? "\(creature.name) has \(creature.health) health left." : "\(creature.name) has been defeated!"
+            let healthStatus =
+                creature.health > 0
+                ? "\(creature.name) has \(creature.health) health left."
+                : "\(creature.name) has been defeated!"
             return "\(result) \(healthStatus)"
         case .examine(let location):
             return "You examine the area: \(location.name). It's quite interesting."
@@ -67,17 +69,17 @@ class GameEngine {
             return "Thanks for playing! Goodbye!"
         }
     }
-    
+
     func updateCreatures() -> [String] {
         var events: [String] = []
 
         for creature in state.creatures where creature !== state.player && creature.health > 0 {
-            
+
             guard creature.behavior == .hostile else {
                 // Passive creatures do nothing (for now)
                 continue
             }
-            
+
             let cPos = creature.position
             let pPos = state.player.position
 

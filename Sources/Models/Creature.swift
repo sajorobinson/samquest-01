@@ -15,7 +15,9 @@ class Creature {
         return "\(name)'s health: \(health)"
     }
 
-    func move(in direction: Direction, mapBounds: (minX: Int, maxX: Int, minY: Int, maxY: Int)) -> String {
+    func move(in direction: Direction, mapBounds: (minX: Int, maxX: Int, minY: Int, maxY: Int))
+        -> String
+    {
         switch direction {
         case .north:
             if position.y + 1 > mapBounds.maxY { return "\(name) can't move north." }
