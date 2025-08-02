@@ -11,5 +11,6 @@ func directionToward(from: (x: Int, y: Int), to: (x: Int, y: Int)) -> Direction?
     } else if dy != 0 {
         return dy > 0 ? .north : .south
     }
+    
     return nil
 }
