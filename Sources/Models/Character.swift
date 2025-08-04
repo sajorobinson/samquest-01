@@ -1,4 +1,5 @@
 final class Character: Creature {
+    var gender: Gender = .somethingElse
     func says() -> String {
         let somethings: [String] = [
             "Hello!",
