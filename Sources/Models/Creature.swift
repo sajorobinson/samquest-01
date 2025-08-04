@@ -1,8 +1,8 @@
 class Creature {
-    let name: String
+    var name: String
     var health: Int
     var position: (x: Int, y: Int)
-    let behavior: Behavior
+    var behavior: Behavior
 
     init(name: String, health: Int, position: (x: Int, y: Int), behavior: Behavior) {
         self.name = name
