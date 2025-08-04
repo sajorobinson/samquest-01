@@ -5,7 +5,7 @@ class GameEngine {
         self.state = initialState
     }
 
-    func getAvailableActions() -> [Action] {
+    func listAvailableActions() -> [Action] {
         var actions: [Action] = []
 
         let pos: (x: Int, y: Int) = state.player.position
