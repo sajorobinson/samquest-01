@@ -1,5 +1,11 @@
 final class Character: Creature {
-    var gender: Gender = .somethingElse
+    var gender: Gender
+
+    init(name: String, health: Int, position: (x: Int, y: Int), behavior: Behavior, gender: Gender) {
+        self.gender = gender
+        super.init(name: name, health: health, position: position, behavior: behavior)
+    }
+
     func says() -> String {
         let somethings: [String] = [
             "Hello!",
