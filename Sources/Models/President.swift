@@ -10,7 +10,7 @@ struct President {
             behavior: .passive
         )
         var creatures: [Creature] = []
-        creatures += CreaturesPassive.Mammals.rabbits(max: 3)
+        creatures += CharactersPassive.Humans.spawn(max: 3)
         creatures += [player]
         // Locations
         let locations: [Location] = [
