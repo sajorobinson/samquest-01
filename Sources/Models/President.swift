@@ -1,6 +1,6 @@
 class President {
+    // The President is responsible for doing stuff.
     let name: String = "President"
-
     func createGameState() -> GameState {
         // Creatures
         let player: Player = Player(
