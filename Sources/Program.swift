@@ -10,7 +10,6 @@ struct Main {
         while !engine.state.isGameOver {
             let actions: [Action] = engine.listAvailableActions()
             print("SamQuest01")
-            print("----------")
             print("Choose an action:")
             for (i, action) in actions.enumerated() {
                 print("[\(i + 1)] \(action.description)")
