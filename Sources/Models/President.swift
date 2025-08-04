@@ -18,7 +18,7 @@ class President {
             Location(position: (0, 1), name: "Goblin Cave"),
         ]
         // Map bounds
-        let mapBounds = Config.Map.normal
+        let mapBounds: MapBounds = Config.Map.normal
         // Put it all together
         let gameState: GameState = GameState(
             player: player,
