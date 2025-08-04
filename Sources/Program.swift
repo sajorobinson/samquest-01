@@ -3,7 +3,7 @@ import Foundation
 @main
 struct Main {
     static func main() {
-        let player: Creature = Creature(
+        let player: Player = Player(
             name: "Sam",
             health: 100,
             position: (0, 0),
