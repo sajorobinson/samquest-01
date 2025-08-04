@@ -5,8 +5,7 @@ struct Main {
     static func main() {
 
         // President generates the game state for now
-        let thePresident:President = President()
-        let initialState: GameState = thePresident.createGameState()
+        let initialState: GameState = President.createGameState()
         
         let engine: GameEngine = GameEngine(initialState: initialState)
 
