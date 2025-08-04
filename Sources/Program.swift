@@ -56,9 +56,9 @@ struct Main {
                 choice <= actions.count
             {
                 let result: String = engine.perform(actions[choice - 1])
-                PU.d(m: result)
+                PresentationUtility.d(m: result)
             } else {
-                PU.d(m: "Invalid input. Please enter a number from the list.")
+                PresentationUtility.d(m: "Invalid input. Please enter a number from the list.")
             }
         }
     }
