@@ -1,4 +1,4 @@
-class Player: Creature {
+final class Player: Creature {
     func move(in direction: Direction, mapBounds: MapBounds) -> String {
         switch direction {
         case .north:
