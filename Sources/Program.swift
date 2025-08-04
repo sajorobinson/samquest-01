@@ -4,16 +4,13 @@ import Foundation
 struct Main {
     static func main() {
 
-        // President generates the game state for now
-        let initialState: GameState = President.createGameState()
-        
+        let initialState: GameState = President.createGameState()        
         let engine: GameEngine = GameEngine(initialState: initialState)
 
         while !engine.state.isGameOver {
             let actions: [Action] = engine.listAvailableActions()
-            print("=========================")
-            print("||      SamQuest01     ||")
-            print("=========================")
+            print("SamQuest01")
+            print("----------")
             print("Choose an action:")
             for (i, action) in actions.enumerated() {
                 print("[\(i + 1)] \(action.description)")
