@@ -42,7 +42,7 @@ struct Main {
         let engine: GameEngine = GameEngine(initialState: initialState)
 
         while !engine.state.isGameOver {
-            let actions: [Action] = engine.availableActions()
+            let actions: [Action] = engine.getAvailableActions()
             print("=========================")
             print("||      SamQuest01     ||")
             print("=========================")
@@ -57,10 +57,6 @@ struct Main {
             {
                 let result: String = engine.perform(actions[choice - 1])
                 PU.d(m: result)
-                let aiEvents: [String] = engine.updateCreatures()
-                for event: String in aiEvents {
-                    PU.d(m: event)
-                }
             } else {
                 PU.d(m: "Invalid input. Please enter a number from the list.")
             }
