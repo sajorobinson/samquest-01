@@ -5,8 +5,7 @@ class GameEngine {
         self.state = initialState
     }
 
-    func availableActions() -> [Action] {
-
+    func getAvailableActions() -> [Action] {
         // Container of available actions.
         var actions: [Action] = []
 
@@ -22,7 +21,7 @@ class GameEngine {
             $0 !== state.player && abs($0.position.x - pos.x) == 0
                 && abs($0.position.y - pos.y) == 0
         }
-
+        
         // Get available actions for nearby creatures.
         for creature: Creature in nearbyCreatures {
             if creature.behavior == .hostile {
@@ -52,9 +51,20 @@ class GameEngine {
             return state.player.move(in: direction, mapBounds: state.mapBounds)
         
         case .talk(let creature):
+            /*
+                I'm thinking the way we handle this is also through a scene, like
+                an engagement between two creatures. So we might want to make a new
+                concept called a GameScene, which would have a name, a container of creatures
+                who are part of the scene, etc.
+            */
             return "You talk to \(creature.name). They look at you curiously."
         
         case .attack(let creature):
+            /* 
+                For this section I'm thinking we could insert some logic
+                in here for like a combat engagement like in a JRPG. And 
+                that could conceptually be a different scene.
+            */
             let damage: Int = 10
             creature.health -= damage
             let result: String = "\(state.player.name) attacks \(creature.name) for \(damage) damage."
@@ -75,40 +85,4 @@ class GameEngine {
             return "Thanks for playing! Goodbye!"
         }
     }
-
-    func updateCreatures() -> [String] {
-        var events: [String] = []
-
-        for creature: Creature in state.creatures where creature !== state.player && creature.health > 0 {
-
-            guard creature.behavior == .hostile else {
-                continue
-            }
-
-            let cPos: (x: Int, y: Int) = creature.position
-            let pPos: (x: Int, y: Int) = state.player.position
-
-            if cPos == pPos {
-                let damage: Int = 5
-                state.player.health -= damage
-                let attackMessage: String = "\(creature.name) attacks you for \(damage) damage!"
-                events.append(attackMessage)
-
-                if state.player.health <= 0 {
-                    events.append("You have been defeated!")
-                    state.isGameOver = true
-                    break
-                }
-            } else if let direction: Direction = directionToward(from: cPos, to: pPos) {
-                let before: (x: Int, y: Int) = creature.position
-                _ = creature.move(in: direction, mapBounds: state.mapBounds)
-                let after: (x: Int, y: Int) = creature.position
-                if before != after {
-                    events.append("\(creature.name) moves \(direction.rawValue).")
-                }
-            }
-        }
-        return events
-    }
-
 }
