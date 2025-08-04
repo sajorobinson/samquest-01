@@ -1,7 +1,7 @@
-class President {
+struct President {
     // The President is responsible for doing stuff.
     let name: String = "President"
-    func createGameState() -> GameState {
+    static func createGameState() -> GameState {
         // Creatures
         let player: Player = Player(
             name: "Sam",
@@ -10,7 +10,7 @@ class President {
             behavior: .passive
         )
         var creatures: [Creature] = []
-        creatures += CreaturesPassive.Mammals.rabbits()
+        creatures += CreaturesPassive.Mammals.rabbits(max: 3)
         creatures += [player]
         // Locations
         let locations: [Location] = [
@@ -28,5 +28,12 @@ class President {
             mapBounds: mapBounds
         )
         return gameState
+    }
+    static func spawnCreatures(count: Int, factory: () -> Creature) -> [Creature] {
+        var creatures: [Creature] = []
+        for _ in 1...count {
+            creatures.append(factory())
+        }
+        return creatures
     }
 }
