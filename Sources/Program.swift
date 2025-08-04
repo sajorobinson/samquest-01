@@ -3,46 +3,15 @@ import Foundation
 @main
 struct Main {
     static func main() {
-        let player: Player = Player(
-            name: "Sam",
-            health: 100,
-            position: (0, 0),
-            behavior: .passive
-        )
+
+        // President generates the game state for now
+        let thePresident:President = President()
+        let initialState: GameState = thePresident.createGameState()
         
-        let goblin: Creature = Creature(
-            name: "Goblin",
-            health: 30,
-            position: (0, 1),
-            behavior: .hostile
-        )
-        
-        let villager: Creature = Creature(
-            name: "Villager", 
-            health: 100, 
-            position: (1, 0), 
-            behavior: .passive
-        )
-
-        let creatures: [Creature] = [player, goblin, villager]
-
-        let locations: [Location] = [
-            Location(position: (0, 0), name: "Village Square"),
-            Location(position: (0, 1), name: "Goblin Cave"),
-        ]
-
-        let initialState: GameState = GameState(
-            player: player,
-            creatures: creatures,
-            locations: locations,
-            isGameOver: false,
-            mapBounds: MapBounds(minX: -5, maxX: 5, minY: -5, maxY: 5)
-        )
-
         let engine: GameEngine = GameEngine(initialState: initialState)
 
         while !engine.state.isGameOver {
-            let actions: [Action] = engine.getAvailableActions()
+            let actions: [Action] = engine.listAvailableActions()
             print("=========================")
             print("||      SamQuest01     ||")
             print("=========================")
