@@ -28,12 +28,6 @@ public struct GameManager {
         )
         return gameState
     }
-    static func handleScene() {
-        
-    }
-    // static func createScene(forMe creature: Creature) -> GameScene {
-    //     let position: (x: Int, y: Int) = creature.position
-    // }
     static func spawnCreatures(count: Int, factory: () -> Creature) -> [Creature] {
         var creatures: [Creature] = []
         for _ in 1...count {
