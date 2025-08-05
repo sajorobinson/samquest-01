@@ -1,4 +1,4 @@
-enum SceneType {
+enum GameSceneType {
     case battle
     case conversation
     case trade

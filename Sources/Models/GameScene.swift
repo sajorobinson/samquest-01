@@ -1,5 +1,5 @@
-struct Scene {
+struct GameScene {
     var name: String
     var creatures: [Creature]
-    var sceneType: SceneType
+    var sceneType: GameSceneType
 }
