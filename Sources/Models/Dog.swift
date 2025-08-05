@@ -10,7 +10,7 @@ struct Dog {
             behavior: .passive
         )
         var creatures: [Creature] = []
-        creatures += CharactersPassive.Humans.spawn(max: 3)
+        creatures += CharactersPassive.Humans.spawn(count: 1)
         creatures += [player]
         // Locations
         let locations: [Location] = [
