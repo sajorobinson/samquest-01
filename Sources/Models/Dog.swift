@@ -1,6 +1,6 @@
-struct Dog {
-    // The Dog is responsible for doing stuff.
-    let name: String = "Dog"
+struct Butler {
+    // The Butler is responsible for doing stuff.
+    let name: String = "Eugene"
     static func createGameState() -> GameState {
         // Creatures
         let player: Player = Player(
