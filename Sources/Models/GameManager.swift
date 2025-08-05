@@ -1,5 +1,4 @@
-/// The Butler is responsible for doing stuff.
-public struct Butler {
+public struct GameManager {
     let name: String = "Eugene"
     static func createGameState() -> GameState {
         // Creatures
