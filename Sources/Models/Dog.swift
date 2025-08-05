@@ -1,6 +1,6 @@
-struct President {
-    // The President is responsible for doing stuff.
-    let name: String = "President"
+struct Dog {
+    // The Dog is responsible for doing stuff.
+    let name: String = "Dog"
     static func createGameState() -> GameState {
         // Creatures
         let player: Player = Player(
@@ -29,6 +29,12 @@ struct President {
         )
         return gameState
     }
+    static func handleScene() {
+        
+    }
+    // static func createScene(forMe creature: Creature) -> GameScene {
+    //     let position: (x: Int, y: Int) = creature.position
+    // }
     static func spawnCreatures(count: Int, factory: () -> Creature) -> [Creature] {
         var creatures: [Creature] = []
         for _ in 1...count {

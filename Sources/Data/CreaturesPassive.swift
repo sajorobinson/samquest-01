@@ -1,7 +1,7 @@
 public struct CreaturesPassive {
     public struct Mammals {
         static func spawn(max: Int) -> [Creature] {
-            let rabbits: [Creature] = President.spawnCreatures(count: 3) {
+            let rabbits: [Creature] = Dog.spawnCreatures(count: 3) {
                 Creature(
                     name: "Rabbit", 
                     health: 1, 
