@@ -48,15 +48,8 @@ class GameEngine {
             return "You talk to \(creature.name). They look at you curiously."
         
         case .attack(let creature):
-            let damage: Int = 10
-            creature.health -= damage
-            let result: String = "\(state.player.name) attacks \(creature.name) for \(damage) damage."
-            let healthStatus: String =
-                creature.health > 0
-                ? "\(creature.name) has \(creature.health) health left."
-                : "\(creature.name) has been defeated!"
-            return "\(result) \(healthStatus)"
-        
+            return "blep"
+            
         case .examine(let location):
             return "You examine the area: \(location.name). It's quite interesting."
         
