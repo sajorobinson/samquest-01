@@ -4,7 +4,7 @@ import Foundation
 struct Main {
     static func main() {
 
-        let initialState: GameState = President.createGameState()        
+        let initialState: GameState = Dog.createGameState()        
         let engine: GameEngine = GameEngine(initialState: initialState)
 
         while !engine.state.isGameOver {
