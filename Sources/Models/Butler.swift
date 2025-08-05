@@ -1,5 +1,5 @@
-struct Butler {
-    // The Butler is responsible for doing stuff.
+/// The Butler is responsible for doing stuff.
+public struct Butler {
     let name: String = "Eugene"
     static func createGameState() -> GameState {
         // Creatures

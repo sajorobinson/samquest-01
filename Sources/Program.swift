@@ -3,7 +3,6 @@ import Foundation
 @main
 struct Main {
     static func main() {
-
         let initialState: GameState = Butler.createGameState()
         let engine: GameEngine = GameEngine(initialState: initialState)
 
