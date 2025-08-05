@@ -48,7 +48,7 @@ class GameEngine {
             return "You talk to \(creature.name). They look at you curiously."
         
         case .attack(let creature):
-            return "blep"
+            return creature.name
             
         case .examine(let location):
             return "You examine the area: \(location.name). It's quite interesting."
