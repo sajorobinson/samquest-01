@@ -2,19 +2,19 @@ public struct GameManager {
     let name: String = "Eugene"
     static func createGameState() -> GameState {
         // Creatures
-        let player: Player = Player(
+        let player: Creature = Creature(
+            isPlayer: true,
             name: "Sam",
             health: 100,
-            position: (0, 0),
-            behavior: .passive
+            behavior: .hostile,
+            gender: .man
         )
         var creatures: [Creature] = []
-        creatures += CharactersPassive.Humans.spawn(count: 1)
         creatures += [player]
         // Locations
         let locations: [Location] = [
-            Location(position: (0, 0), name: "Village Square"),
-            Location(position: (0, 1), name: "Goblin Cave"),
+            Location(name: "Village Square"),
+            Location(name: "Goblin Cave"),
         ]
         // Put it all together
         let gameState: GameState = GameState(

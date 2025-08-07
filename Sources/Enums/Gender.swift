@@ -1,4 +1,4 @@
-enum Gender: CaseIterable {
+enum Gender: CaseIterable, Decodable {
     case man
     case woman
     case nonBinary
