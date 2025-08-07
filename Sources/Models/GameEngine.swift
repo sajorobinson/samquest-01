@@ -8,10 +8,16 @@ class GameEngine {
     func listAvailableActions() -> [Action] {
         var actions: [Action] = []
 
+        // Movement
         actions.append(.move(.north))
         actions.append(.move(.south))
         actions.append(.move(.east))
         actions.append(.move(.west))
+
+        // Menu stuff
+        actions.append(.location)
+        actions.append(.status)
+        actions.append(.exit)
 
         let pos: (x: Int, y: Int) = state.player.position
 
@@ -33,10 +39,6 @@ class GameEngine {
             actions.append(.examine(location: location))
         }
 
-        actions.append(.location)
-        actions.append(.status)
-        actions.append(.exit)
-
         return actions
     }
 
@@ -50,7 +52,7 @@ class GameEngine {
             return "You talk to \(creature.name). They look at you curiously."
 
         case .attack(let creature):
-            return creature.name
+            return "You make a sneering face at \(creature.name)."
 
         case .examine(let location):
             return "You examine the area: \(location.name). It's quite interesting."
