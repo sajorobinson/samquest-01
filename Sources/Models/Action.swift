@@ -1,15 +1,17 @@
 enum Action {
-    case talk(to: Creature)
-    case attack(target: Creature)
-    case status
+    case examine
+    case check
+    case talk
+    case attack
     case exit
 
     var description: String {
         switch self {
-        case .talk(let creature): return "Talk to \(creature.name)"
-        case .attack(let creature): return "Attack \(creature.name)"
-        case .status: return "Check Status"
-        case .exit: return "Exit Game"
+        case .examine: return "Examine this location."
+        case .check: return "Check yourself."
+        case .talk: return "Talk to creature."
+        case .attack: return "Attack creature."
+        case .exit: return "Exit game."
         }
     }
 }

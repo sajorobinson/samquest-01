@@ -7,11 +7,8 @@ class GameEngine {
 
     func listAvailableActions() -> [Action] {
         var actions: [Action] = []
-
-        // Movement
-
-        // Menu stuff
-        actions.append(.status)
+        actions.append(.examine)
+        actions.append(.check)
         actions.append(.exit)
 
         return actions
@@ -19,16 +16,14 @@ class GameEngine {
 
     func perform(_ action: Action) -> String {
         switch action {
-
-        case .talk(let creature):
-            return "You talk to \(creature.name). They look at you curiously."
-
-        case .attack(let creature):
-            return "You make a sneering face at \(creature.name)."
-
-        case .status:
+        case .examine:
+            return "A location description."
+        case .check:
             return state.player.announceHealth()
-
+        case .talk:
+            return "You talk to the creature. They look at you curiously."
+        case .attack:
+            return "You make a sneering face at the creature."
         case .exit:
             state.isGameOver = true
             return "Thanks for playing! Goodbye!"
