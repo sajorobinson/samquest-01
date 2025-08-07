@@ -44,7 +44,7 @@ class GameEngine {
         switch action {
 
         case .move(let direction):
-            return state.player.move(in: direction, mapBounds: state.mapBounds)
+            return state.player.move(in: direction)
 
         case .talk(let creature):
             return "You talk to \(creature.name). They look at you curiously."

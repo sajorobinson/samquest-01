@@ -1,5 +1,5 @@
 final class Player: Creature {
-    func move(in direction: Direction, mapBounds: MapBounds) -> String {
+    func move(in direction: Direction) -> String {
         switch direction {
         case .north:
             position.y += 1
