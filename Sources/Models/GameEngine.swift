@@ -8,17 +8,18 @@ class GameEngine {
     func listAvailableActions() -> [Action] {
         var actions: [Action] = []
 
+        actions.append(.move(.north))
+        actions.append(.move(.south))
+        actions.append(.move(.east))
+        actions.append(.move(.west))
+
         let pos: (x: Int, y: Int) = state.player.position
-        if pos.y + 1 <= state.mapBounds.maxY { actions.append(.move(.north)) }
-        if pos.y - 1 >= state.mapBounds.minY { actions.append(.move(.south)) }
-        if pos.x + 1 <= state.mapBounds.maxX { actions.append(.move(.east)) }
-        if pos.x - 1 >= state.mapBounds.minX { actions.append(.move(.west)) }
 
         let nearbyCreatures: [Creature] = state.creatures.filter {
             $0 !== state.player && abs($0.position.x - pos.x) == 0
                 && abs($0.position.y - pos.y) == 0
         }
-        
+
         for creature: Creature in nearbyCreatures {
             if creature.behavior == .hostile {
                 actions.append(.attack(target: creature))
@@ -32,6 +33,7 @@ class GameEngine {
             actions.append(.examine(location: location))
         }
 
+        actions.append(.location)
         actions.append(.status)
         actions.append(.exit)
 
@@ -40,22 +42,25 @@ class GameEngine {
 
     func perform(_ action: Action) -> String {
         switch action {
-        
+
         case .move(let direction):
             return state.player.move(in: direction, mapBounds: state.mapBounds)
-        
+
         case .talk(let creature):
             return "You talk to \(creature.name). They look at you curiously."
-        
+
         case .attack(let creature):
             return creature.name
-            
+
         case .examine(let location):
             return "You examine the area: \(location.name). It's quite interesting."
-        
+
+        case .location:
+            return state.player.getPosition()
+
         case .status:
             return state.player.announceHealth()
-        
+
         case .exit:
             state.isGameOver = true
             return "Thanks for playing! Goodbye!"

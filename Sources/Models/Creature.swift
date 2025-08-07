@@ -14,4 +14,8 @@ class Creature {
     func announceHealth() -> String {
         return "\(name)'s health: \(health)"
     }
+
+    func getPosition() -> String {
+        return "x: \(self.position.x) y: \(self.position.y)"
+    }
 }

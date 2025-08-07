@@ -4,6 +4,7 @@ enum Action {
     case attack(target: Creature)
     case examine(location: Location)
     case status
+    case location
     case exit
 
     var description: String {
@@ -13,6 +14,7 @@ enum Action {
         case .attack(let creature): return "Attack \(creature.name)"
         case .examine(let location): return "Examine \(location.name)"
         case .status: return "Check Status"
+        case .location: return "Check Location"
         case .exit: return "Exit Game"
         }
     }
