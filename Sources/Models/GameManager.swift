@@ -1,7 +1,7 @@
 public struct GameManager {
     let name: String = "Eugene"
-    static func createGameState() -> GameState {
-        // Creatures
+
+    static func createPlayer() -> Creature {
         let player: Creature = Creature(
             isPlayer: true,
             name: "Sam",
@@ -9,14 +9,37 @@ public struct GameManager {
             behavior: .hostile,
             gender: .man
         )
-        var creatures: [Creature] = []
-        creatures += [player]
-        // Locations
+        return player
+    }
+
+    static func createCreatures() -> [Creature] {
+        let creatures: [Creature] = []
+        return creatures
+    }
+
+    static func createLocations() -> [Location] {
+        var locVillageSquare = Location(
+            name: "Village Square",
+            description: "A charming village square."
+        )
+        var locGoblinCave = Location(
+            name: "Goblin Cave",
+            description: "A delightful goblin cave."
+        )
+        locVillageSquare.exits = [.north: locGoblinCave]
+        locGoblinCave.exits = [.south: locVillageSquare]
         let locations: [Location] = [
-            Location(name: "Village Square"),
-            Location(name: "Goblin Cave"),
+            locVillageSquare,
+            locGoblinCave,
         ]
-        // Put it all together
+        return locations
+    }
+
+    static func createGameState() -> GameState {
+        let player = createPlayer()
+        var creatures = createCreatures()
+        creatures += [player]
+        let locations = createLocations()
         let gameState: GameState = GameState(
             player: player,
             creatures: creatures,
@@ -25,6 +48,7 @@ public struct GameManager {
         )
         return gameState
     }
+
     static func spawnCreatures(count: Int, factory: () -> Creature) -> [Creature] {
         var creatures: [Creature] = []
         for _ in 1...count {
