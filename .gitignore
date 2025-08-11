@@ -63,3 +63,4 @@ fastlane/test_output
 .vscode/launch.json
 .gitignore
 .vscode/settings.json
+.DS_Store
