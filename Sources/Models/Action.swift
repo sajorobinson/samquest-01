@@ -7,11 +7,11 @@ enum Action {
 
     var description: String {
         switch self {
-        case .examine: return "Examine this location."
-        case .check: return "Check yourself."
-        case .talk: return "Talk to creature."
-        case .attack: return "Attack creature."
-        case .exit: return "Exit game."
+        case .examine: return "Examine."
+        case .check: return "Check."
+        case .talk: return "Talk."
+        case .attack: return "Attack."
+        case .exit: return "Exit."
         }
     }
 }
