@@ -13,11 +13,11 @@ class Creature: Decodable {
         self.gender = gender
     }
 
-    func announceHealth() -> String {
+    func describeHealth() -> String {
         return "\(name)'s health: \(health)"
     }
 
-    func says() -> String {
+    func say() -> String {
         let things: [String] = [
             "Hello!",
             "How are you?",
