@@ -22,6 +22,7 @@ public struct GameManager {
             name: "Village Square",
             description: "A charming village square."
         )
+        locVillageSquare.clutter()
         var locGoblinCave = Location(
             name: "Goblin Cave",
             description: "A delightful goblin cave."
