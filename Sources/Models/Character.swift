@@ -1,4 +1,4 @@
-class Creature: HasName, HasHealth, HasDescription, HasBehavior {
+class Character: HasName, HasHealth, HasDescription, HasBehavior, CanSpeak {
     var name: String
     var health: Int
     var description: String

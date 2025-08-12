@@ -3,7 +3,6 @@ public struct GameManager {
 
     static func createPlayer() -> Creature {
         let player: Creature = Creature(
-            isPlayer: true,
             name: "Sam",
             health: 100,
             behavior: .hostile,

@@ -1,0 +1,3 @@
+protocol CanMove {
+    func move()
+}
