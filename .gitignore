@@ -64,3 +64,4 @@ fastlane/test_output
 .gitignore
 .vscode/settings.json
 .DS_Store
+.swiftpm
