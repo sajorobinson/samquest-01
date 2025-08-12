@@ -5,11 +5,6 @@ protocol HasBehavior {
 
 extension HasBehavior {
     func getBehavior() -> String {
-        switch self.behavior {
-        case .hostile:
-            return "hostile"
-        case .passive:
-            return "passive"
-        }
+        return "\(self.behavior)"
     }
 }

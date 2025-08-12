@@ -22,7 +22,7 @@ class GameEngine {
         case .examine:
             return "A location description."
         case .check:
-            return state.player.describeHealth()
+            return state.player.getHealth()
         case .talk:
             return "You talk to the creature. They look at you curiously."
         case .attack:
