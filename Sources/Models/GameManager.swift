@@ -1,14 +1,19 @@
 public struct GameManager {
     let name: String = "Eugene"
 
-    static func createPlayer() -> Creature {
-        let player: Creature = Creature(
+    static func createPlayer() -> Player {
+        let player: Player = Player(
             name: "Sam",
             health: 100,
+            description: "The main character of this game.",
             behavior: .hostile,
-            gender: .man
         )
         return player
+    }
+
+    static func createCharacters() -> [Character] {
+        let characters: [Character] = []
+        return characters
     }
 
     static func createCreatures() -> [Creature] {
@@ -16,12 +21,16 @@ public struct GameManager {
         return creatures
     }
 
+    static func createItems() -> [Item] {
+        let items: [Item] = []
+        return items
+    }
+
     static func createLocations() -> [Location] {
         var locVillageSquare = Location(
             name: "Village Square",
             description: "A charming village square."
         )
-        locVillageSquare.clutter()
         var locGoblinCave = Location(
             name: "Goblin Cave",
             description: "A delightful goblin cave."
@@ -36,13 +45,18 @@ public struct GameManager {
     }
 
     static func createGameState() -> GameState {
-        let player = createPlayer()
-        var creatures = createCreatures()
-        creatures += [player]
+        var entities: [HasName] = []
+        let player: Player = createPlayer()
+        entities += createCreatures()
+        entities += createCharacters()
+        entities += createItems()
+        entities += [player]
+
         let locations = createLocations()
+
         let gameState: GameState = GameState(
             player: player,
-            creatures: creatures,
+            entities: entities,
             locations: locations,
             isGameOver: false
         )

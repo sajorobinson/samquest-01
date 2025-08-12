@@ -1,3 +1,9 @@
 protocol CanMove {
-    func move()
+    func move() -> String
+}
+
+extension CanMove {
+    func move() -> String {
+        return "Movin' right along."
+    }
 }

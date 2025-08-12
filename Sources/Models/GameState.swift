@@ -1,12 +1,12 @@
 struct GameState {
     var player: Player
-    var creatures: [Creature]
+    var entities: [HasName]
     var locations: [Location]
     var isGameOver: Bool = false
 
-    init(player: Player, creatures: [Creature], locations: [Location], isGameOver: Bool) {
+    init(player: Player, entities: [HasName], locations: [Location], isGameOver: Bool) {
         self.player = player
-        self.creatures = creatures
+        self.entities = entities
         self.locations = locations
         self.isGameOver = isGameOver
     }
