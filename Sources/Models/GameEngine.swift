@@ -13,8 +13,8 @@ class GameEngine {
         return actions
     }
 
-    func listExaminableTargets() {
-        // What would you like to examine?
+    func listExaminableTargets() -> [HasDescription] {
+        return state.entities.compactMap { $0 as? HasDescription }
     }
 
     func perform(_ action: Action) -> String {
