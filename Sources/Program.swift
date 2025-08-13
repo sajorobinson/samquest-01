@@ -21,12 +21,12 @@ struct Main {
                 let choice = Int(input),
                 (1...actions.count).contains(choice)
             else {
-                PresentationUtility.d(m: "Invalid input. Please enter a number from the list.")
+                print("Invalid input. Please enter a number from the list.")
                 continue
             }
 
             let result = engine.perform(actions[choice - 1])
-            PresentationUtility.d(m: result)
+            print(result)
         }
     }
 }
