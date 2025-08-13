@@ -3,11 +3,12 @@ import Foundation
 @main
 struct Main {
     static func main() {
-        let initialState: GameState = GameManager.createGameState()
-        let engine: GameEngine = GameEngine(initialState: initialState)
+        let initialState = GameManager.createGameState()
+        let engine = GameEngine(initialState: initialState)
 
         while !engine.state.isGameOver {
-            let actions: [Action] = engine.listAvailableActions()
+            let actions = engine.listAvailableActions()
+
             print("SamQuest01")
             print("Choose an action:")
             for (i, action) in actions.enumerated() {
@@ -15,14 +16,17 @@ struct Main {
             }
             print("INPUT: ", terminator: "")
 
-            if let input: String = readLine(), let choice: Int = Int(input), choice > 0,
-                choice <= actions.count
-            {
-                let result: String = engine.perform(actions[choice - 1])
-                PresentationUtility.d(m: result)
-            } else {
+            guard
+                let input = readLine(),
+                let choice = Int(input),
+                (1...actions.count).contains(choice)
+            else {
                 PresentationUtility.d(m: "Invalid input. Please enter a number from the list.")
+                continue
             }
+
+            let result = engine.perform(actions[choice - 1])
+            PresentationUtility.d(m: result)
         }
     }
 }
