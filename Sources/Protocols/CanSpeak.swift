@@ -1,4 +1,4 @@
-protocol CanSpeak {
+protocol CanSpeak: HasName {
     func speak() -> String
 }
 

@@ -1,4 +1,4 @@
-protocol HasHealth {
+protocol HasHealth: HasName {
     var health: Int { get set }
     func getHealth() -> String
     mutating func changeHealth(by amount: Int) -> Int

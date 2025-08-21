@@ -1,4 +1,4 @@
-protocol HasBehavior {
+protocol HasBehavior: HasName {
     var behavior: Behavior { get set }
     func getBehavior() -> String
 }
