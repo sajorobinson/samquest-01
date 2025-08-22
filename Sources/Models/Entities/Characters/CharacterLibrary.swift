@@ -4,7 +4,8 @@ extension Character {
             name: "Sam",
             health: 100,
             description: "The main character of this game.",
-            behavior: .passive
+            behavior: .passive,
+            location: Location.villageSquare
         )
     }
 
@@ -13,7 +14,8 @@ extension Character {
             name: "Yu Miri",
             health: 100,
             description: "Author",
-            behavior: .passive
+            behavior: .passive,
+            location: Location.villageSquare
         )
     }
 
@@ -23,7 +25,8 @@ extension Character {
             health: 12,
             description:
                 "A kindly villager with satchels of dried plants and a talent for poultices.",
-            behavior: .passive
+            behavior: .passive,
+            location: Location.villageSquare
         )
     }
 
@@ -32,7 +35,8 @@ extension Character {
             name: "Old Man Cuthbert",
             health: 15,
             description: "A retired knight who spends his days carving wooden figurines.",
-            behavior: .passive
+            behavior: .passive,
+            location: Location.villageSquare
         )
     }
 
@@ -41,7 +45,8 @@ extension Character {
             name: "Talia the Trickster",
             health: 11,
             description: "A nimble thief with a sharp wit and an even sharper dagger.",
-            behavior: .passive
+            behavior: .passive,
+            location: Location.villageSquare
         )
     }
 
@@ -50,7 +55,8 @@ extension Character {
             name: "Brother Emon",
             health: 18,
             description: "A soft-spoken monk devoted to tending the village shrine.",
-            behavior: .passive
+            behavior: .passive,
+            location: Location.villageSquare
         )
     }
 
@@ -59,7 +65,8 @@ extension Character {
             name: "Captain Draeven",
             health: 25,
             description: "A grizzled mercenary captain who never removes his dented helm.",
-            behavior: .passive
+            behavior: .passive,
+            location: Location.villageSquare
         )
     }
 }
