@@ -1,8 +1,8 @@
 public struct GameManager {
-    let name: String = "Eugene"
+    let name: String = "Gemma"
 
-    static func createPlayer() -> Player {
-        let player: Player = Player(
+    static func createPlayer() -> Character {
+        let player: Character = Character(
             name: "Sam",
             health: 100,
             description: "The main character of this game.",
@@ -56,7 +56,7 @@ public struct GameManager {
 
     static func createGameState() -> GameState {
         var entities: [Entity] = []
-        let player: Player = createPlayer()
+        let player: Character = createPlayer()
         let testCharacter: Character = createTestCharacter()
         entities += createCreatures()
         entities += createCharacters()
@@ -73,6 +73,28 @@ public struct GameManager {
             isGameOver: false
         )
         return gameState
+    }
+
+    static func handleExamineScene(scene: Scene, state: GameState) -> String {
+        while !scene.isSceneOver {
+            print("Choose something to examine:")
+            for (i, entity) in state.entities.enumerated() {
+                print("[\(i + 1)] \(entity.name)")
+            }
+            print("INPUT: ", terminator: "")
+            guard
+                let input = readLine(),
+                let choice = Int(input),
+                (1...state.entities.count).contains(choice)
+            else {
+                print("Invalid input. Please enter a number from the list.")
+                continue
+            }
+            let target = state.entities[choice - 1]
+            let result = target.getDescription()
+            return result
+        }
+        return "Default description."
     }
 
     static func spawnCreatures(count: Int, factory: () -> Creature) -> [Creature] {

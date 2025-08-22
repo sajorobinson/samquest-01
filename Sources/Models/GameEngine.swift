@@ -25,29 +25,9 @@ class GameEngine {
         switch action {
         case .examine:
             let scene = Scene(
-                name: "Examining something",
-                entities: listEntities(),
                 sceneType: .examine,
             )
-            while !scene.isSceneOver {
-                print("Choose something to examine:")
-                for (i, entity) in scene.entities.enumerated() {
-                    print("[\(i + 1)] \(entity.name)")
-                }
-                print("INPUT: ", terminator: "")
-                guard
-                    let input = readLine(),
-                    let choice = Int(input),
-                    (1...scene.entities.count).contains(choice)
-                else {
-                    print("Invalid input. Please enter a number from the list.")
-                    continue
-                }
-                let target = scene.entities[choice - 1]
-                let result = target.getName()
-                return result
-            }
-            return "Everything seems fine."
+            return GameManager.handleExamineScene(scene: scene, state: state)
         case .check:
             return state.player.getHealth()
         case .talk:
