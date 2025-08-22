@@ -4,7 +4,8 @@ extension Item {
             name: "Cool rock",
             health: 100,
             description: "I got a rock.",
-            behavior: .passive
+            behavior: .passive,
+            location: Location.villageSquare
         )
     }
 }
