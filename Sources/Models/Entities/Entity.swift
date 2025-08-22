@@ -1,3 +1,5 @@
+import Foundation
+
 class Entity: HasName, HasHealth, HasDescription, HasBehavior {
     var name: String
     var health: Int

@@ -1,4 +1,4 @@
-enum Action {
+enum Action: CaseIterable {
     case examine
     case check
     case talk
@@ -13,5 +13,13 @@ enum Action {
         case .attack: return "Attack"
         case .exit: return "Exit"
         }
+    }
+
+    static func listActions() -> [Action] {
+        var actions: [Action] = []
+        for action in Action.allCases {
+            actions.append(action)
+        }
+        return actions
     }
 }

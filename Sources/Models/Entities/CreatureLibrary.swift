@@ -1,14 +1,3 @@
-class Creature: Entity, CanMove {
-    override init(name: String, health: Int, description: String, behavior: Behavior) {
-        super.init(
-            name: name,
-            health: health,
-            description: description,
-            behavior: behavior
-        )
-    }
-}
-
 extension Creature {
     static var goblin: Creature {
         Creature(
@@ -18,6 +7,7 @@ extension Creature {
             behavior: .passive
         )
     }
+
     static var slime: Creature {
         Creature(
             name: "Cave Slime",
@@ -26,6 +16,7 @@ extension Creature {
             behavior: .hostile
         )
     }
+
     static var wolf: Creature {
         Creature(
             name: "Ashfang Wolf",
@@ -34,6 +25,7 @@ extension Creature {
             behavior: .hostile
         )
     }
+
     static var turtle: Creature {
         Creature(
             name: "Stoneback Turtle",
@@ -42,6 +34,7 @@ extension Creature {
             behavior: .passive
         )
     }
+
     static var moth: Creature {
         Creature(
             name: "Lantern Moth",
