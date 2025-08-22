@@ -44,7 +44,8 @@ struct Main {
                 var scene: TalkScene = TalkScene()
                 print(scene.run(with: &state))
             case .exit:
-                print("Goodbye!")
+                var scene: ExitScene = ExitScene()
+                print(scene.run(with: &state))
                 gameOver = true
             }
         }
