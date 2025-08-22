@@ -72,6 +72,7 @@ public struct GameManager {
         entities += createCreatures()
         entities += createCharacters()
         entities += createItems()
+        entities += [playerCharacter]
         let locations = createLocations()
         let gameState: GameState = GameState(
             playerCharacter: playerCharacter,
