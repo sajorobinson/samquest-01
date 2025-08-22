@@ -1,11 +1,10 @@
-struct Location {
-    var name: String
+class Location: Entity {
     var description: String
     var items: [Item] = []
     var exits: [Direction: Location] = [:]
 
     init(name: String, description: String) {
-        self.name = name
         self.description = description
+        super.init(name: name)
     }
 }

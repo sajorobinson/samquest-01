@@ -1,5 +1,6 @@
 struct Scene {
     var name: String
-    var creatures: [Creature]
+    var entities: [Entity]
     var sceneType: Action
+    var isSceneOver: Bool = false
 }

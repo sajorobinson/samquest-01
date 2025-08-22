@@ -11,6 +11,16 @@ public struct GameManager {
         return player
     }
 
+    static func createTestCharacter() -> Character {
+        let testCharacter: Character = Character(
+            name: "Yu Miri",
+            health: 100,
+            description: "An author.",
+            behavior: .hostile
+        )
+        return testCharacter
+    }
+
     static func createCharacters() -> [Character] {
         let characters: [Character] = []
         return characters
@@ -27,11 +37,11 @@ public struct GameManager {
     }
 
     static func createLocations() -> [Location] {
-        var locVillageSquare = Location(
+        let locVillageSquare = Location(
             name: "Village Square",
             description: "A charming village square."
         )
-        var locGoblinCave = Location(
+        let locGoblinCave = Location(
             name: "Goblin Cave",
             description: "A delightful goblin cave."
         )
@@ -45,12 +55,14 @@ public struct GameManager {
     }
 
     static func createGameState() -> GameState {
-        var entities: [HasName] = []
+        var entities: [Entity] = []
         let player: Player = createPlayer()
+        let testCharacter: Character = createTestCharacter()
         entities += createCreatures()
         entities += createCharacters()
         entities += createItems()
         entities += [player]
+        entities += [testCharacter]
 
         let locations = createLocations()
 

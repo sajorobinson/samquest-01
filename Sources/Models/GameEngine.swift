@@ -13,14 +13,41 @@ class GameEngine {
         return actions
     }
 
-    func listExaminableTargets() -> [HasDescription] {
+    func listEntities() -> [Entity] {
+        return state.entities
+    }
+
+    func listEntitiesExamine() -> [HasDescription] {
         return state.entities.compactMap { $0 as? HasDescription }
     }
 
     func perform(_ action: Action) -> String {
         switch action {
         case .examine:
-            return "A location description."
+            let scene = Scene(
+                name: "Examining something",
+                entities: listEntities(),
+                sceneType: .examine,
+            )
+            while !scene.isSceneOver {
+                print("Choose something to examine:")
+                for (i, entity) in scene.entities.enumerated() {
+                    print("[\(i + 1)] \(entity.name)")
+                }
+                print("INPUT: ", terminator: "")
+                guard
+                    let input = readLine(),
+                    let choice = Int(input),
+                    (1...scene.entities.count).contains(choice)
+                else {
+                    print("Invalid input. Please enter a number from the list.")
+                    continue
+                }
+                let target = scene.entities[choice - 1]
+                let result = target.getName()
+                return result
+            }
+            return "Everything seems fine."
         case .check:
             return state.player.getHealth()
         case .talk:

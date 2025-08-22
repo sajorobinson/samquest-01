@@ -1,11 +1,10 @@
-struct Item: HasName, HasHealth, HasDescription {
-    var name: String
+class Item: Entity, HasHealth, HasDescription {
     var health: Int
     var description: String
 
     init(name: String, health: Int, description: String) {
-        self.name = name
         self.health = health
         self.description = description
+        super.init(name: name)
     }
 }
