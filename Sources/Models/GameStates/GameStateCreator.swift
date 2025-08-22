@@ -1,4 +1,4 @@
-enum Manager {
+enum GameStateCreator {
     static func createGameState() -> GameState {
         let playerCharacter: Character = Character.player
         let characters: [Character] = Factory.spawnCharacters()
