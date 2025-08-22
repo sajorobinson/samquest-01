@@ -1,9 +1,9 @@
 extension GameState {
     static var defaultGame: GameState {
         GameState(
-            playerCharacter: Character.player,
+            playerCharacter: Entity.player,
             entities: Factory.spawnCharacters()
-                + Factory.spawnGoblins()
+                + Factory.spawnCreatures()
                 + Factory.spawnItems(),
             locations: Factory.createLocations()
         )

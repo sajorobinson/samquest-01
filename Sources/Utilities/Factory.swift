@@ -8,27 +8,29 @@ enum Factory {
         return results
     }
 
+    static func spawnCharacters() -> [Entity] {
+        var characters: [Entity] = []
+        characters += [Entity.author]
+        return characters
+    }
+
+    static func spawnCreatures() -> [Entity] {
+        var creatures: [Entity] = []
+        let goblins: [Entity] = spawn(count: 3) { .goblin }
+        creatures += goblins
+        return creatures
+    }
+
+    static func spawnItems() -> [Entity] {
+        var items: [Entity] = []
+        items += [Entity.book]
+        return items
+    }
+
     static func createLocations() -> [Location] {
         var locations: [Location] = []
         locations += [Location.villageSquare, Location.goblinCave]
         return locations
     }
 
-    static func spawnCharacters() -> [Character] {
-        var characters: [Character] = []
-        characters += [Character.author, Character.captain, Character.cuthbert]
-        return characters
-    }
-
-    static func spawnGoblins() -> [Creature] {
-        var creatures: [Creature] = []
-        creatures += Factory.spawn(count: 2) { .goblin }
-        return creatures
-    }
-
-    static func spawnItems() -> [Item] {
-        var items: [Item] = []
-        items += Factory.spawn(count: 1) { .rock }
-        return items
-    }
 }

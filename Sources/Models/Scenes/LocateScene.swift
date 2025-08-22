@@ -1,10 +1,20 @@
-struct LocateScene: CanRunScene {
+struct LocateScene {
     var isSceneOver: Bool = false
     mutating func run(with state: inout GameState) -> String {
-        let result = """
-            Your location: \(state.playerCharacter.location.getName())
-            Description: \(state.playerCharacter.location.getDescription())
-            """
-        return result
+        for location in state.locations {
+            if state.playerCharacter.posX == location.x
+                && state.playerCharacter.posY == location.y
+            {
+                let result = """
+                    x: \(state.playerCharacter.posX), y: \(state.playerCharacter.posY)
+                    Location: \(location.name)
+                    Description: \(location.description)
+                    """
+                return result
+            } else {
+                continue
+            }
+        }
+        return "You are lost."
     }
 }

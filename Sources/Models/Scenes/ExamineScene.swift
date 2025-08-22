@@ -1,4 +1,4 @@
-struct ExamineScene: CanRunScene {
+struct ExamineScene {
     var isSceneOver: Bool = false
     mutating func run(with state: inout GameState) -> String {
         while !self.isSceneOver {
