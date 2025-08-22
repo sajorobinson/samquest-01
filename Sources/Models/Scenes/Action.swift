@@ -1,19 +1,19 @@
 enum Action: CaseIterable {
-    case examine
     case check
+    case locate
+    case examine
     case talk
     case attack
     case exit
-    case locate
 
     var description: String {
         switch self {
-        case .examine: return "Examine"
         case .check: return "Check"
+        case .locate: return "Locate"
+        case .examine: return "Examine"
         case .talk: return "Talk"
         case .attack: return "Attack"
         case .exit: return "Exit"
-        case .locate: return "Locate"
         }
     }
 

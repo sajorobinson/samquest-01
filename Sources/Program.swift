@@ -31,11 +31,11 @@ struct Main {
 
             // Route choice of action to a scene.
             switch actions[choice - 1] {
-            case .attack:
-                var scene: AttackScene = AttackScene()
-                print(scene.run(with: &state))
             case .check:
                 var scene: CheckScene = CheckScene()
+                print(scene.run(with: &state))
+            case .locate:
+                var scene: LocateScene = LocateScene()
                 print(scene.run(with: &state))
             case .examine:
                 var scene: ExamineScene = ExamineScene()
@@ -43,8 +43,8 @@ struct Main {
             case .talk:
                 var scene: TalkScene = TalkScene()
                 print(scene.run(with: &state))
-            case .locate:
-                var scene: LocateScene = LocateScene()
+            case .attack:
+                var scene: AttackScene = AttackScene()
                 print(scene.run(with: &state))
             case .exit:
                 var scene: ExitScene = ExitScene()
