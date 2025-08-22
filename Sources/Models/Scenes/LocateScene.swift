@@ -15,6 +15,7 @@ struct LocateScene {
                 continue
             }
         }
-        return "You are lost."
+        return
+            "x: \(state.playerCharacter.posX), y: \(state.playerCharacter.posY). There's nothing here."
     }
 }

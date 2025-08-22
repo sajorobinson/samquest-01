@@ -37,6 +37,9 @@ struct Main {
             case .locate:
                 var scene: LocateScene = LocateScene()
                 print(scene.run(with: &state))
+            case .move:
+                var scene: MoveScene = MoveScene()
+                print(scene.run(with: &state))
             case .examine:
                 var scene: ExamineScene = ExamineScene()
                 print(scene.run(with: &state))

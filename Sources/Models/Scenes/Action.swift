@@ -1,6 +1,7 @@
 enum Action: CaseIterable {
     case check
     case locate
+    case move
     case examine
     case talk
     case attack
@@ -10,6 +11,7 @@ enum Action: CaseIterable {
         switch self {
         case .check: return "Check"
         case .locate: return "Locate"
+        case .move: return "Move"
         case .examine: return "Examine"
         case .talk: return "Talk"
         case .attack: return "Attack"
