@@ -1,10 +1,10 @@
 struct GameState {
-    var player: Character
+    var playerCharacter: Character
     var entities: [Entity]
     var locations: [Location]
 
-    init(player: Character, entities: [Entity], locations: [Location]) {
-        self.player = player
+    init(playerCharacter: Character, entities: [Entity], locations: [Location]) {
+        self.playerCharacter = playerCharacter
         self.entities = entities
         self.locations = locations
     }

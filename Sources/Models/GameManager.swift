@@ -1,14 +1,14 @@
 public struct GameManager {
     let name: String = "Gemma"
 
-    static func createPlayer() -> Character {
-        let player: Character = Character(
+    static func createPlayerCharacter() -> Character {
+        let playerCharacter: Character = Character(
             name: "Sam",
             health: 100,
             description: "The main character of this game.",
             behavior: .hostile,
         )
-        return player
+        return playerCharacter
     }
 
     static func createTestCharacter() -> Character {
@@ -56,18 +56,18 @@ public struct GameManager {
 
     static func createGameState() -> GameState {
         var entities: [Entity] = []
-        let player: Character = createPlayer()
+        let playerCharacter: Character = createPlayerCharacter()
         let testCharacter: Character = createTestCharacter()
         entities += createCreatures()
         entities += createCharacters()
         entities += createItems()
-        entities += [player]
+        entities += [playerCharacter]
         entities += [testCharacter]
 
         let locations = createLocations()
 
         let gameState: GameState = GameState(
-            player: player,
+            playerCharacter: playerCharacter,
             entities: entities,
             locations: locations,
         )
@@ -79,7 +79,7 @@ public struct GameManager {
     }
 
     static func handleCheckScene(scene: Scene, state: GameState) -> String {
-        return state.player.getHealth()
+        return state.playerCharacter.getHealth()
     }
 
     static func handleExamineScene(scene: Scene, state: GameState) -> String {
@@ -105,7 +105,7 @@ public struct GameManager {
     }
 
     static func handleTalkScene(scene: Scene, state: GameState) -> String {
-        return state.player.speak()
+        return state.playerCharacter.speak()
     }
 
     static func spawnCreatures(count: Int, factory: () -> Creature) -> [Creature] {
