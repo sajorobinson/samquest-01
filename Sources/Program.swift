@@ -43,6 +43,9 @@ struct Main {
             case .talk:
                 var scene: TalkScene = TalkScene()
                 print(scene.run(with: &state))
+            case .locate:
+                var scene: LocateScene = LocateScene()
+                print(scene.run(with: &state))
             case .exit:
                 var scene: ExitScene = ExitScene()
                 print(scene.run(with: &state))

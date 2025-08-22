@@ -4,6 +4,7 @@ enum Action: CaseIterable {
     case talk
     case attack
     case exit
+    case locate
 
     var description: String {
         switch self {
@@ -12,6 +13,7 @@ enum Action: CaseIterable {
         case .talk: return "Talk"
         case .attack: return "Attack"
         case .exit: return "Exit"
+        case .locate: return "Locate"
         }
     }
 
