@@ -6,7 +6,7 @@ struct Main {
         let initialState = GameManager.createGameState()
         let engine = GameEngine(initialState: initialState)
 
-        while !engine.state.isGameOver {
+        while !engine.isGameOver {
             let actions = engine.listAvailableActions()
 
             print("SamQuest01")

@@ -1,5 +1,6 @@
 class GameEngine {
     var state: GameState
+    var isGameOver: Bool = false
 
     init(initialState: GameState) {
         self.state = initialState
@@ -9,33 +10,28 @@ class GameEngine {
         var actions: [Action] = []
         actions.append(.examine)
         actions.append(.check)
+        actions.append(.talk)
+        actions.append(.attack)
         actions.append(.exit)
         return actions
-    }
-
-    func listEntities() -> [Entity] {
-        return state.entities
-    }
-
-    func listEntitiesExamine() -> [HasDescription] {
-        return state.entities.compactMap { $0 as HasDescription }
     }
 
     func perform(_ action: Action) -> String {
         switch action {
         case .examine:
-            let scene = Scene(
-                sceneType: .examine,
-            )
+            let scene = Scene(type: .examine)
             return GameManager.handleExamineScene(scene: scene, state: state)
         case .check:
-            return state.player.getHealth()
+            let scene = Scene(type: .check)
+            return GameManager.handleCheckScene(scene: scene, state: state)
         case .talk:
-            return "You talk to the creature. They look at you curiously."
+            let scene = Scene(type: .talk)
+            return GameManager.handleTalkScene(scene: scene, state: state)
         case .attack:
-            return "You make a sneering face at the creature."
+            let scene = Scene(type: .attack)
+            return GameManager.handleAttackScene(scene: scene, state: state)
         case .exit:
-            state.isGameOver = true
+            self.isGameOver = true
             return "Thanks for playing! Goodbye!"
         }
     }

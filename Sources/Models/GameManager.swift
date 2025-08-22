@@ -70,9 +70,16 @@ public struct GameManager {
             player: player,
             entities: entities,
             locations: locations,
-            isGameOver: false
         )
         return gameState
+    }
+
+    static func handleAttackScene(scene: Scene, state: GameState) -> String {
+        return "You attack."
+    }
+
+    static func handleCheckScene(scene: Scene, state: GameState) -> String {
+        return state.player.getHealth()
     }
 
     static func handleExamineScene(scene: Scene, state: GameState) -> String {
@@ -95,6 +102,10 @@ public struct GameManager {
             return result
         }
         return "Default description."
+    }
+
+    static func handleTalkScene(scene: Scene, state: GameState) -> String {
+        return state.player.speak()
     }
 
     static func spawnCreatures(count: Int, factory: () -> Creature) -> [Creature] {

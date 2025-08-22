@@ -1,4 +1,4 @@
 struct Scene {
-    var sceneType: Action
+    var type: Action
     var isSceneOver: Bool = false
 }
