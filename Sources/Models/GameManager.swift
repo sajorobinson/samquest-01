@@ -29,7 +29,17 @@ public struct GameManager {
     }
 
     static func createCreatures() -> [Creature] {
-        let creatures: [Creature] = []
+        func spawnGoblin() -> Creature {
+            let goblin = Creature(
+                name: "Roblin the Goblin",
+                health: 10,
+                description: "A really wonderful person you could get to know.",
+                behavior: .passive
+            )
+            return goblin
+        }
+        var creatures: [Creature] = []
+        creatures += self.spawnCreatures(count: 2, factory: spawnGoblin)
         return creatures
     }
 
