@@ -1,4 +1,4 @@
-enum Behavior {
+enum EntityBehavior {
     case hostile
     case passive
 }

@@ -5,7 +5,7 @@ class Entity {
     var type: EntityType
     var health: Int
     var description: String
-    var behavior: Behavior
+    var behavior: EntityBehavior
     var posX: Int
     var posY: Int
 
@@ -14,7 +14,7 @@ class Entity {
         type: EntityType,
         health: Int,
         description: String,
-        behavior: Behavior,
+        behavior: EntityBehavior,
         posX: Int,
         posY: Int
     ) {
@@ -67,7 +67,7 @@ class Entity {
         return "\(self.behavior)"
     }
 
-    func changeBehavior(to newBehavior: Behavior) -> String {
+    func changeBehavior(to newBehavior: EntityBehavior) -> String {
         self.behavior = newBehavior
         return getBehavior()
     }
