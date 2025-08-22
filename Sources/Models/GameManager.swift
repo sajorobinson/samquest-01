@@ -58,7 +58,7 @@ public struct GameManager {
     }
 
     static func handleAttackScene(scene: Scene, state: GameState) -> String {
-        return "You attack."
+        return "You hurt yourself in confusion!"
     }
 
     static func handleCheckScene(scene: Scene, state: GameState) -> String {

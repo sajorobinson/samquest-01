@@ -2,6 +2,8 @@ import Foundation
 
 @main
 struct Main {
+    // TO DO -- Completely revamp state logic w/ database.
+    // the current way of doing this doesn't work and is therefore unsustainable
     static func main() {
         let initialState = GameManager.createGameState()
         let engine = GameEngine(initialState: initialState)
