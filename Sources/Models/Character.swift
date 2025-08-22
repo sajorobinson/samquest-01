@@ -10,7 +10,6 @@ class Character: Entity, CanMove, CanSpeak {
 }
 
 extension Character {
-
     static var author: Character {
         Character(
             name: "Yu Miri",
@@ -19,7 +18,6 @@ extension Character {
             behavior: .passive
         )
     }
-
     static var herbalist: Character {
         Character(
             name: "Maribel the Herbalist",
@@ -29,7 +27,6 @@ extension Character {
             behavior: .passive
         )
     }
-
     static var cuthbert: Character {
         Character(
             name: "Old Man Cuthbert",
@@ -38,7 +35,6 @@ extension Character {
             behavior: .passive
         )
     }
-
     static var trickster: Character {
         Character(
             name: "Talia the Trickster",
@@ -47,7 +43,6 @@ extension Character {
             behavior: .passive
         )
     }
-
     static var monk: Character {
         Character(
             name: "Brother Emon",
@@ -56,7 +51,6 @@ extension Character {
             behavior: .passive
         )
     }
-
     static var captain: Character {
         Character(
             name: "Captain Draeven",

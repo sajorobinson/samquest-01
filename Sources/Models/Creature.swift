@@ -18,7 +18,6 @@ extension Creature {
             behavior: .passive
         )
     }
-
     static var slime: Creature {
         Creature(
             name: "Cave Slime",
@@ -27,7 +26,6 @@ extension Creature {
             behavior: .hostile
         )
     }
-
     static var wolf: Creature {
         Creature(
             name: "Ashfang Wolf",
@@ -36,7 +34,6 @@ extension Creature {
             behavior: .hostile
         )
     }
-
     static var turtle: Creature {
         Creature(
             name: "Stoneback Turtle",
@@ -45,7 +42,6 @@ extension Creature {
             behavior: .passive
         )
     }
-
     static var moth: Creature {
         Creature(
             name: "Lantern Moth",
