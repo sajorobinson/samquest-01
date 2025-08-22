@@ -2,18 +2,23 @@ import Foundation
 
 @main
 struct Main {
-    // TO DO -- Completely revamp state logic w/ database.
-    // the current way of doing this doesn't work and is therefore unsustainable
     static func main() {
-        let initialState = GameManager.createGameState()
-        let engine = GameEngine(initialState: initialState)
-        while !engine.isGameOver {
-            let actions = engine.listAvailableActions()
+        // Create a game state. TODO: Implement loading a state from a file.
+        var state = Manager.createGameState()
+
+        // Game loop
+        var gameOver: Bool = false
+        while !gameOver {
             print("SamQuest01")
+
+            // List available actions & present to player.
             print("Choose an action:")
+            let actions = Action.listActions()
             for (i, action) in actions.enumerated() {
                 print("[\(i + 1)] \(action.description)")
             }
+
+            // Get the player's choice of action.
             print("INPUT: ", terminator: "")
             guard
                 let input = readLine(),
@@ -23,8 +28,25 @@ struct Main {
                 print("Invalid input. Please enter a number from the list.")
                 continue
             }
-            let result = engine.perform(actions[choice - 1])
-            print(result)
+
+            // Route choice of action to a scene.
+            switch actions[choice - 1] {
+            case .attack:
+                var scene: AttackScene = AttackScene()
+                print(scene.run(with: &state))
+            case .check:
+                var scene: CheckScene = CheckScene()
+                print(scene.run(with: &state))
+            case .examine:
+                var scene: ExamineScene = ExamineScene()
+                print(scene.run(with: &state))
+            case .talk:
+                var scene: TalkScene = TalkScene()
+                print(scene.run(with: &state))
+            case .exit:
+                print("Goodbye!")
+                gameOver = true
+            }
         }
     }
 }

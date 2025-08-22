@@ -1,14 +1,3 @@
-class Character: Entity, CanMove, CanSpeak {
-    override init(name: String, health: Int, description: String, behavior: Behavior) {
-        super.init(
-            name: name,
-            health: health,
-            description: description,
-            behavior: behavior
-        )
-    }
-}
-
 extension Character {
     static var player: Character {
         Character(
@@ -18,6 +7,7 @@ extension Character {
             behavior: .passive
         )
     }
+
     static var author: Character {
         Character(
             name: "Yu Miri",
@@ -26,6 +16,7 @@ extension Character {
             behavior: .passive
         )
     }
+
     static var herbalist: Character {
         Character(
             name: "Maribel the Herbalist",
@@ -35,6 +26,7 @@ extension Character {
             behavior: .passive
         )
     }
+
     static var cuthbert: Character {
         Character(
             name: "Old Man Cuthbert",
@@ -43,6 +35,7 @@ extension Character {
             behavior: .passive
         )
     }
+
     static var trickster: Character {
         Character(
             name: "Talia the Trickster",
@@ -51,6 +44,7 @@ extension Character {
             behavior: .passive
         )
     }
+
     static var monk: Character {
         Character(
             name: "Brother Emon",
@@ -59,6 +53,7 @@ extension Character {
             behavior: .passive
         )
     }
+
     static var captain: Character {
         Character(
             name: "Captain Draeven",

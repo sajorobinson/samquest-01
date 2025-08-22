@@ -1,4 +1,4 @@
-enum Behavior: Decodable {
+enum Behavior {
     case hostile
     case passive
 }
