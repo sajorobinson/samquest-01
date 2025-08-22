@@ -11,35 +11,16 @@ public struct GameManager {
         return playerCharacter
     }
 
-    static func createTestCharacter() -> Character {
-        let testCharacter: Character = Character(
-            name: "Yu Miri",
-            health: 100,
-            description: "An author.",
-            behavior: .hostile
-        )
-        return testCharacter
-    }
-
     static func createCharacters() -> [Character] {
-        let testCharacter: Character = createTestCharacter()
         var characters: [Character] = []
-        characters += [testCharacter]
+        characters += [Character.author, Character.captain, Character.cuthbert]
         return characters
     }
 
     static func createCreatures() -> [Creature] {
-        func spawnGoblin() -> Creature {
-            let goblin = Creature(
-                name: "Roblin the Goblin",
-                health: 10,
-                description: "A really wonderful person you could get to know.",
-                behavior: .passive
-            )
-            return goblin
-        }
         var creatures: [Creature] = []
-        creatures += self.spawnCreatures(count: 2, factory: spawnGoblin)
+        creatures += self.spawnCreatures(count: 2) { .goblin }
+        creatures += self.spawnCreatures(count: 2) { .turtle }
         return creatures
     }
 
@@ -122,5 +103,13 @@ public struct GameManager {
             creatures.append(factory())
         }
         return creatures
+    }
+
+    static func spawnCharacters(count: Int, factory: () -> Character) -> [Character] {
+        var characters: [Character] = []
+        for _ in 1...count {
+            characters.append(factory())
+        }
+        return characters
     }
 }
