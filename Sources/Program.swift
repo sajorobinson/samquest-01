@@ -4,7 +4,7 @@ import Foundation
 struct Main {
     static func main() {
         // Create a game state. TODO: Implement loading a state from a file.
-        var state = GameStateCreator.createGameState()
+        var state = GameState.defaultGame
 
         // Game loop
         var gameOver: Bool = false
