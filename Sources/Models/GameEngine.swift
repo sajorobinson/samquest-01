@@ -18,7 +18,7 @@ class GameEngine {
     }
 
     func listEntitiesExamine() -> [HasDescription] {
-        return state.entities.compactMap { $0 as? HasDescription }
+        return state.entities.compactMap { $0 as HasDescription }
     }
 
     func perform(_ action: Action) -> String {

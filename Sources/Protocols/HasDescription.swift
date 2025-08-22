@@ -1,4 +1,4 @@
-protocol HasDescription: HasName {
+protocol HasDescription {
     var description: String { get set }
     func getDescription() -> String
 }

@@ -1,4 +1,4 @@
-protocol CanMove: HasName {
+protocol CanMove {
     func move() -> String
 }
 
