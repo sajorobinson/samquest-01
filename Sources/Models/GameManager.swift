@@ -22,7 +22,9 @@ public struct GameManager {
     }
 
     static func createCharacters() -> [Character] {
-        let characters: [Character] = []
+        let testCharacter: Character = createTestCharacter()
+        var characters: [Character] = []
+        characters += [testCharacter]
         return characters
     }
 
@@ -55,17 +57,12 @@ public struct GameManager {
     }
 
     static func createGameState() -> GameState {
-        var entities: [Entity] = []
         let playerCharacter: Character = createPlayerCharacter()
-        let testCharacter: Character = createTestCharacter()
+        var entities: [Entity] = []
         entities += createCreatures()
         entities += createCharacters()
         entities += createItems()
-        entities += [playerCharacter]
-        entities += [testCharacter]
-
         let locations = createLocations()
-
         let gameState: GameState = GameState(
             playerCharacter: playerCharacter,
             entities: entities,
