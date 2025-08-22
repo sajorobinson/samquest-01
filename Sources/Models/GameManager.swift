@@ -2,13 +2,7 @@ public struct GameManager {
     let name: String = "Gemma"
 
     static func createPlayerCharacter() -> Character {
-        let playerCharacter: Character = Character(
-            name: "Sam",
-            health: 100,
-            description: "The main character of this game.",
-            behavior: .hostile,
-        )
-        return playerCharacter
+        return Character.player
     }
 
     static func createCharacters() -> [Character] {

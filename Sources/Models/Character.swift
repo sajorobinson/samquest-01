@@ -10,6 +10,14 @@ class Character: Entity, CanMove, CanSpeak {
 }
 
 extension Character {
+    static var player: Character {
+        Character(
+            name: "Sam",
+            health: 100,
+            description: "The main character of this game.",
+            behavior: .passive
+        )
+    }
     static var author: Character {
         Character(
             name: "Yu Miri",
