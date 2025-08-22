@@ -1,4 +1,4 @@
-class Location {
+class Location: HasName, HasDescription {
     var name: String
     var description: String
     var exits: [Direction: Location] = [:]
