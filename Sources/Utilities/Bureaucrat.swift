@@ -26,6 +26,9 @@ enum Bureaucrat {
             print("[\(i + 1)] \(entity.name)")
         }
     }
+    static func readChosenOption() {
+
+    }
     static func readChosenEntity(_ entities: [Entity]) -> Entity? {
         print("INPUT: ", terminator: "")
         guard

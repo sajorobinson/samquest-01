@@ -15,44 +15,50 @@ struct Main {
             } else {
                 print("SamQuest01")
                 print("Choose an action:")
-                let sceneTypeOptions = SceneType.listSceneTypes()
-                for (i, sceneTypeOption) in sceneTypeOptions.enumerated() {
-                    print("[\(i + 1)] \(sceneTypeOption.description)")
-                }
 
+                print("[1] Check")
+                print("[2] Locate")
+                print("[3] Move")
+                print("[4] Examine")
+                print("[5] Talk")
+                print("[6] Attack")
+                print("[7] Exit")
+
+                let input = readLine() ?? "1"
                 print("INPUT: ", terminator: "")
-                guard
-                    let input = readLine(),
-                    let choice = Int(input),
-                    (1...sceneTypeOptions.count).contains(choice)
-                else {
-                    print("Invalid input. Please enter a number from the list.")
-                    continue
-                }
 
-                switch sceneTypeOptions[choice - 1] {
-                case .check:
+                if input == "1" {
                     var scene: Check = Check()
                     print(scene.run(with: &state))
-                case .locate:
+
+                } else if input == "2" {
                     var scene: Locate = Locate()
                     print(scene.run(with: &state))
-                case .move:
+
+                } else if input == "3" {
                     var scene: Move = Move()
                     print(scene.run(with: &state))
-                case .examine:
+
+                } else if input == "4" {
                     var scene: Examine = Examine()
                     print(scene.run(with: &state))
-                case .talk:
+
+                } else if input == "5" {
                     var scene: Talk = Talk()
                     print(scene.run(with: &state))
-                case .attack:
+
+                } else if input == "6" {
                     var scene: Attack = Attack()
                     print(scene.run(with: &state))
-                case .exit:
+
+                } else if input == "7" {
                     var scene: Exit = Exit()
                     print(scene.run(with: &state))
                     gameOver = true
+
+                } else {
+                    print("Invalid input.")
+                    continue
                 }
             }
         }
