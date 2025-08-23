@@ -24,38 +24,31 @@ struct Main {
                 print("[6] Attack")
                 print("[7] Exit")
 
-                let input = readLine() ?? "1"
                 print("INPUT: ", terminator: "")
+                let input = readLine() ?? "1"
 
                 if input == "1" {
                     var scene: Check = Check()
                     print(scene.run(with: &state))
-
                 } else if input == "2" {
                     var scene: Locate = Locate()
                     print(scene.run(with: &state))
-
                 } else if input == "3" {
                     var scene: Move = Move()
                     print(scene.run(with: &state))
-
                 } else if input == "4" {
                     var scene: Examine = Examine()
                     print(scene.run(with: &state))
-
                 } else if input == "5" {
                     var scene: Talk = Talk()
                     print(scene.run(with: &state))
-
                 } else if input == "6" {
                     var scene: Attack = Attack()
                     print(scene.run(with: &state))
-
                 } else if input == "7" {
                     var scene: Exit = Exit()
                     print(scene.run(with: &state))
                     gameOver = true
-
                 } else {
                     print("Invalid input.")
                     continue
