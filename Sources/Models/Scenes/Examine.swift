@@ -3,21 +3,19 @@ struct Examine: Scene {
     mutating func run(with state: inout GameState) -> String {
         while !self.isSceneOver {
             print("Choose something to examine.")
-            for (i, entity) in state.entities.enumerated() {
-                print("[\(i + 1)] \(entity.name)")
-            }
-            print("INPUT: ", terminator: "")
-            guard
-                let input = readLine(),
-                let choice = Int(input),
-                (1...state.entities.count).contains(choice)
-            else {
-                print("Invalid input. Please enter a number from the list.")
+            let entities = Bureaucrat.listEntitiesAtPosition(
+                with: state,
+                x: state.playerCharacter.posX,
+                y: state.playerCharacter.posY
+            )
+            Bureaucrat.printEntities(entities)
+            let choice = Bureaucrat.getChosenEntity(entities)
+            if choice == nil {
                 continue
+            } else {
+                let result = choice!.getDescription()
+                return result
             }
-            let target = state.entities[choice - 1]
-            let result = target.getDescription()
-            return result
         }
         return "Default description."
     }
