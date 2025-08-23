@@ -93,6 +93,7 @@ class Entity {
                 "How are you?",
                 "Nice day we're having.",
                 "Oh no! A pink giraffe!",
+                "Talkin' never did me good.",
             ]
             let something: String = things.randomElement() ?? "Sorry, I didn't quite catch that."
             return something
