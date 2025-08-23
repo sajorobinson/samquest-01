@@ -25,14 +25,6 @@ class Entity {
         self.behavior = behavior
         self.posX = posX
         self.posY = posY
-
-        if self.health > 100 {
-            self.health = 100
-        } else if self.health <= 0 {
-            self.health = 1
-        } else {
-            // :)
-        }
     }
 
     func getName() -> String {
