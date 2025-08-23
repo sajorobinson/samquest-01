@@ -1,5 +1,12 @@
 // aka scene manager, but bureaucrat because he interacts w/ the state :)
 enum Bureaucrat {
+    static func ruok(with state: GameState) -> Bool {
+        if state.playerCharacter.health <= 0 {
+            return false
+        } else {
+            return true
+        }
+    }
     static func listEntitiesAtPosition(with state: GameState, x: Int, y: Int) -> [Entity] {
         var entitiesAtPosition: [Entity] = []
         for entity in state.entities {
