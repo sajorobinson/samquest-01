@@ -8,13 +8,17 @@ struct Examine: Scene {
                 x: state.playerCharacter.posX,
                 y: state.playerCharacter.posY
             )
-            Bureaucrat.printEntities(entities)
-            let choice = Bureaucrat.getChosenEntity(entities)
-            if choice == nil {
-                continue
+            if entities.count == 0 {
+                return "There's nothing to interact with here."
             } else {
-                let result = choice!.getDescription()
-                return result
+                Bureaucrat.printEntities(entities)
+                let choice = Bureaucrat.getChosenEntity(entities)
+                if choice == nil {
+                    continue
+                } else {
+                    let result = choice!.getDescription()
+                    return result
+                }
             }
         }
         return "Default description."

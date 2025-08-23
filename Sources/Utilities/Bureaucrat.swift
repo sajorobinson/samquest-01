@@ -13,12 +13,13 @@ enum Bureaucrat {
     }
     static func printEntities(_ entities: [Entity]) {
         if entities.count == 0 {
-            print("")
+            print("No entities.")
         }
         for (i, entity) in entities.enumerated() {
             print("[\(i + 1)] \(entity.name)")
         }
     }
+    // the current problem is that there's no check to see the length of this array
     static func getChosenEntity(_ entities: [Entity]) -> Entity? {
         print("INPUT: ", terminator: "")
         guard
