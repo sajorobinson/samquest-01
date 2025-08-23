@@ -3,21 +3,23 @@ struct Talk: Scene {
     mutating func run(with state: inout GameState) -> String {
         while !self.isSceneOver {
             print("Who do you want to talk to?")
-            for (i, entity) in state.entities.enumerated() {
-                print("[\(i + 1)] \(entity.name)")
+            let entities = Bureaucrat.listEntitiesAtPosition(
+                with: state,
+                x: state.playerCharacter.posX,
+                y: state.playerCharacter.posY
+            )
+            if entities.count == 0 {
+                return "There's nothing to talk to here."
+            } else {
+                Bureaucrat.printEntities(entities)
+                let choice = Bureaucrat.readChosenEntity(entities)
+                if choice == nil {
+                    continue
+                } else {
+                    let result = choice!.speak()
+                    return result
+                }
             }
-            print("INPUT: ", terminator: "")
-            guard
-                let input = readLine(),
-                let choice = Int(input),
-                (1...state.entities.count).contains(choice)
-            else {
-                print("Invalid input. Please enter a number from the list.")
-                continue
-            }
-            let target = state.entities[choice - 1]
-            let result = target.speak()
-            return result
         }
         return "Default speech."
     }
