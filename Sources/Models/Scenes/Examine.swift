@@ -12,7 +12,7 @@ struct Examine: Scene {
                 return "There's nothing to interact with here."
             } else {
                 Bureaucrat.printEntities(entities)
-                let choice = Bureaucrat.getChosenEntity(entities)
+                let choice = Bureaucrat.readChosenEntity(entities)
                 if choice == nil {
                     continue
                 } else {
