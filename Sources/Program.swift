@@ -10,15 +10,11 @@ struct Main {
         var gameOver: Bool = false
         while !gameOver {
             print("SamQuest01")
-
-            // List and present available actions (scenes).
             print("Choose an action:")
             let sceneTypeOptions = SceneType.listSceneTypes()
             for (i, sceneTypeOption) in sceneTypeOptions.enumerated() {
                 print("[\(i + 1)] \(sceneTypeOption.description)")
             }
-
-            // Get the player's choice of action.
             print("INPUT: ", terminator: "")
             guard
                 let input = readLine(),
@@ -29,7 +25,6 @@ struct Main {
                 continue
             }
 
-            // Route choice of action to a scene.
             switch sceneTypeOptions[choice - 1] {
             case .check:
                 var scene: Check = Check()
