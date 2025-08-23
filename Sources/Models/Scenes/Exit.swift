@@ -1,6 +1,6 @@
-struct CheckScene {
+struct Exit: Scene {
     var isSceneOver: Bool = false
     mutating func run(with state: inout GameState) -> String {
-        return "Your health: \(state.playerCharacter.getHealth())"
+        return "Goodbye!"
     }
 }

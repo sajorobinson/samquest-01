@@ -11,11 +11,11 @@ struct Main {
         while !gameOver {
             print("SamQuest01")
 
-            // List available actions & present to player.
+            // List and present available actions (scenes).
             print("Choose an action:")
-            let actions = Action.listActions()
-            for (i, action) in actions.enumerated() {
-                print("[\(i + 1)] \(action.description)")
+            let sceneTypeOptions = SceneType.listSceneTypes()
+            for (i, sceneTypeOption) in sceneTypeOptions.enumerated() {
+                print("[\(i + 1)] \(sceneTypeOption.description)")
             }
 
             // Get the player's choice of action.
@@ -23,34 +23,34 @@ struct Main {
             guard
                 let input = readLine(),
                 let choice = Int(input),
-                (1...actions.count).contains(choice)
+                (1...sceneTypeOptions.count).contains(choice)
             else {
                 print("Invalid input. Please enter a number from the list.")
                 continue
             }
 
             // Route choice of action to a scene.
-            switch actions[choice - 1] {
+            switch sceneTypeOptions[choice - 1] {
             case .check:
-                var scene: CheckScene = CheckScene()
+                var scene: Check = Check()
                 print(scene.run(with: &state))
             case .locate:
-                var scene: LocateScene = LocateScene()
+                var scene: Locate = Locate()
                 print(scene.run(with: &state))
             case .move:
-                var scene: MoveScene = MoveScene()
+                var scene: Move = Move()
                 print(scene.run(with: &state))
             case .examine:
-                var scene: ExamineScene = ExamineScene()
+                var scene: Examine = Examine()
                 print(scene.run(with: &state))
             case .talk:
-                var scene: TalkScene = TalkScene()
+                var scene: Talk = Talk()
                 print(scene.run(with: &state))
             case .attack:
-                var scene: AttackScene = AttackScene()
+                var scene: Attack = Attack()
                 print(scene.run(with: &state))
             case .exit:
-                var scene: ExitScene = ExitScene()
+                var scene: Exit = Exit()
                 print(scene.run(with: &state))
                 gameOver = true
             }

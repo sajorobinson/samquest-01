@@ -1,4 +1,4 @@
-struct LocateScene {
+struct Locate: Scene {
     var isSceneOver: Bool = false
     mutating func run(with state: inout GameState) -> String {
         for location in state.locations {

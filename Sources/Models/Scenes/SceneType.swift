@@ -1,4 +1,4 @@
-enum Action: CaseIterable {
+enum SceneType: CaseIterable {
     case check
     case locate
     case move
@@ -19,11 +19,11 @@ enum Action: CaseIterable {
         }
     }
 
-    static func listActions() -> [Action] {
-        var actions: [Action] = []
-        for action in Action.allCases {
-            actions.append(action)
+    static func listSceneTypes() -> [SceneType] {
+        var sceneTypes: [SceneType] = []
+        for sceneType in SceneType.allCases {
+            sceneTypes.append(sceneType)
         }
-        return actions
+        return sceneTypes
     }
 }

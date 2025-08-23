@@ -1,4 +1,4 @@
-struct TalkScene {
+struct Talk: Scene {
     var isSceneOver: Bool = false
     mutating func run(with state: inout GameState) -> String {
         while !self.isSceneOver {
