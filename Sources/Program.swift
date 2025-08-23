@@ -5,7 +5,6 @@ struct Main {
     static func main() {
         // Create a game state. TODO: Implement loading a state from a file.
         var state = GameState.defaultGame
-
         // Game loop
         var gameOver: Bool = false
         while !gameOver {
@@ -13,39 +12,41 @@ struct Main {
                 print("Game over!")
                 gameOver = true
             } else {
-                print("SamQuest01")
-                print("Choose an action:")
+                print(
+                    """
+                    \n
+                    SamQuest01
 
-                print("[1] Check")
-                print("[2] Locate")
-                print("[3] Move")
-                print("[4] Examine")
-                print("[5] Talk")
-                print("[6] Attack")
-                print("[7] Exit")
+                    m = move             l = locate      t = talk
+                    c = check status     e = examine     a = attack
+
+                    x = exit
+
+                    """)
 
                 print("INPUT: ", terminator: "")
-                let input = readLine() ?? "1"
+                let input = readLine() ?? "C"
+                print("\n")
 
-                if input == "1" {
+                if input.capitalized == "C" {
                     var scene: Check = Check()
                     print(scene.run(with: &state))
-                } else if input == "2" {
+                } else if input.capitalized == "L" {
                     var scene: Locate = Locate()
                     print(scene.run(with: &state))
-                } else if input == "3" {
+                } else if input.capitalized == "M" {
                     var scene: Move = Move()
                     print(scene.run(with: &state))
-                } else if input == "4" {
+                } else if input.capitalized == "E" {
                     var scene: Examine = Examine()
                     print(scene.run(with: &state))
-                } else if input == "5" {
+                } else if input.capitalized == "T" {
                     var scene: Talk = Talk()
                     print(scene.run(with: &state))
-                } else if input == "6" {
+                } else if input.capitalized == "A" {
                     var scene: Attack = Attack()
                     print(scene.run(with: &state))
-                } else if input == "7" {
+                } else if input.capitalized == "X" {
                     var scene: Exit = Exit()
                     print(scene.run(with: &state))
                     gameOver = true
