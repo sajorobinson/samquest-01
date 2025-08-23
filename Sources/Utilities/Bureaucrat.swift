@@ -31,7 +31,7 @@ enum Bureaucrat {
         }
         return entities[choice - 1]
     }
-    static func getLocation(with state: GameState, x: Int, y: Int) -> Location? {
+    static func getLocationFromPosition(with state: GameState, x: Int, y: Int) -> Location? {
         for location in state.locations {
             if location.x == x && location.y == y {
                 return location
