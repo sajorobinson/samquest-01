@@ -1,12 +1,8 @@
 struct Move: Scene {
     var isSceneOver: Bool = false
     mutating func run(with state: inout GameState) -> String {
-        print("Which direction do you want to move?")
-        print("| w = north  | a = west | s = south | d = east |")
-        print("| x = cancel |")
-
+        print(Bureaucrat.CommunicationsBureau.moveUserInterface)
         let choice = Bureaucrat.CommunicationsBureau.readInput()
-
         if choice.capitalized == "W" {
             state.playerCharacter.posY += 1
             return state.playerCharacter.getPosition()

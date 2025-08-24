@@ -9,7 +9,7 @@ struct Main {
             if !Bureaucrat.HealthBureau.ruok(with: state) {
                 gameOver = Bureaucrat.CommunicationsBureau.endGame()
             } else {
-                Bureaucrat.CommunicationsBureau.printUserInterface()
+                print(Bureaucrat.CommunicationsBureau.userInterface)
                 let input = Bureaucrat.CommunicationsBureau.readInput()
                 if input.capitalized == "C" {
                     var scene: Check = Check()
