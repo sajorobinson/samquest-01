@@ -1,4 +1,3 @@
-// i know this is going to crazy and im going to let it happen
 enum Utilities {
 
     enum InputOutput {
