@@ -40,9 +40,8 @@ enum Utilities {
             }
         }
         static func readChosenEntity(_ entities: [Entity]) -> Entity? {
-            print("INPUT: ", terminator: "")
+            let input = Utilities.InputOutput.readInput()
             guard
-                let input = readLine(),
                 let choice = Int(input),
                 (1...entities.count).contains(choice)
             else {
