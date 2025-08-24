@@ -62,4 +62,21 @@ enum Utilities {
             return nil
         }
     }
+
+    enum Debug {
+        static func listEntities(with state: GameState) -> [String] {
+            var entities: [String] = []
+            for entity in state.entities {
+                entities.append("\(entity.name) : \(entity.posX) \(entity.posY)")
+            }
+            return entities
+        }
+        static func listLocations(with state: GameState) -> [String] {
+            var locations: [String] = []
+            for location in state.locations {
+                locations.append("\(location.name): \(location.x) \(location.y)")
+            }
+            return locations
+        }
+    }
 }

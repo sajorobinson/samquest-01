@@ -14,7 +14,7 @@ struct Main {
                     SamQuest01
                     | m = move   | l = locate  | t = talk   |
                     | c = status | e = examine | a = attack |
-                    | x = exit   |
+                    | x = exit   | d = debug
                     """
                 )
                 let input = Utilities.InputOutput.readInput()
@@ -40,6 +40,9 @@ struct Main {
                     var scene: Exit = Exit()
                     print(scene.run(with: &state))
                     gameOver = true
+                } else if input.lowercased() == "d" {
+                    var scene: Debug = Debug()
+                    print(scene.run(with: &state))
                 } else {
                     print("Invalid input.")
                     continue

@@ -16,7 +16,7 @@ enum Factory {
 
     static func spawnCreatures() -> [Entity] {
         var creatures: [Entity] = []
-        let goblins: [Entity] = spawn(count: 3) { .goblin }
+        let goblins: [Entity] = spawn(count: 10) { .goblin }
         creatures += goblins
         return creatures
     }

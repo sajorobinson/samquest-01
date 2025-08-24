@@ -1,3 +1,5 @@
+import Foundation
+
 extension Entity {
     static var goblin: Entity {
         Entity(
@@ -6,8 +8,8 @@ extension Entity {
             health: 5,
             description: "A friendly goblin.",
             behavior: .passive,
-            posX: 0,
-            posY: 1
+            posX: Int.random(in: 1..<5),
+            posY: Int.random(in: 1..<5)
         )
     }
 }
