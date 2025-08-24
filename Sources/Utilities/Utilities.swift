@@ -24,15 +24,7 @@ enum Utilities {
             state.playerCharacter.health > 0
         }
         static func listEntitiesAtPosition(with state: GameState, x: Int, y: Int) -> [Entity] {
-            var entitiesAtPosition: [Entity] = []
-            for entity in state.entities {
-                if entity.posX == x && entity.posY == y {
-                    entitiesAtPosition.append(entity)
-                } else {
-                    continue
-                }
-            }
-            return entitiesAtPosition
+            return state.entities.filter { $0.posX == x && $0.posY == y }
         }
         static func printEntities(_ entities: [Entity]) {
             if entities.count == 0 {
@@ -68,18 +60,10 @@ enum Utilities {
 
     enum Debug {
         static func listEntities(with state: GameState) -> [String] {
-            var entities: [String] = []
-            for entity in state.entities {
-                entities.append("\(entity.name) : \(entity.posX) \(entity.posY)")
-            }
-            return entities
+            return state.entities.map { "\($0.name) : \($0.posX) \($0.posY)" }
         }
         static func listLocations(with state: GameState) -> [String] {
-            var locations: [String] = []
-            for location in state.locations {
-                locations.append("\(location.name): \(location.x) \(location.y)")
-            }
-            return locations
+            state.locations.map { "\($0.name): \($0.x) \($0.y)" }
         }
     }
 }
