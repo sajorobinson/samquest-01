@@ -19,9 +19,7 @@ struct Debug: Scene {
         } else if choice.lowercased() == "x" {
             return "Debug canceled."
         } else {
-            print("Invalid input. Debug canceled.")
+            return "Invalid input. Debug canceled."
         }
-        return "Default debug."
-
     }
 }
