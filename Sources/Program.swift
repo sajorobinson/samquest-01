@@ -6,11 +6,18 @@ struct Main {
         var state = GameState.defaultGame
         var gameOver: Bool = false
         while !gameOver {
-            if !Helper.Entities.ruok(with: state) {
-                gameOver = Helper.InputOutput.endGame()
+            if !Utilities.Entities.ruok(with: state) {
+                gameOver = Utilities.InputOutput.endGame()
             } else {
-                print(Helper.InputOutput.userInterface)
-                let input = Helper.InputOutput.readInput()
+                print(
+                    """
+                    SamQuest01
+                    | m = move   | l = locate  | t = talk   |
+                    | c = status | e = examine | a = attack |
+                    | x = exit   |
+                    """
+                )
+                let input = Utilities.InputOutput.readInput()
                 if input.capitalized == "C" {
                     var scene: Check = Check()
                     print(scene.run(with: &state))

@@ -1,8 +1,15 @@
 struct Move: Scene {
     var isSceneOver: Bool = false
+    var moveUserInterface: String {
+        """
+        Which direction do you want to move?
+        | w = north  | a = west | s = south | d = east |
+        | x = cancel |
+        """
+    }
     mutating func run(with state: inout GameState) -> String {
-        print(Helper.InputOutput.moveUserInterface)
-        let choice = Helper.InputOutput.readInput()
+        print(moveUserInterface)
+        let choice = Utilities.InputOutput.readInput()
         if choice.capitalized == "W" {
             state.playerCharacter.posY += 1
             return state.playerCharacter.getPosition()

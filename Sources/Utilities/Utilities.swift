@@ -1,37 +1,15 @@
 // i know this is going to crazy and im going to let it happen
-enum Helper {
+enum Utilities {
 
     enum InputOutput {
-
-        static var userInterface: String {
-            """
-            SamQuest01
-            | m = move   | l = locate  | t = talk   |
-            | c = status | e = examine | a = attack |
-            | x = exit   |
-            """
+        static func readInput() -> String {
+            print("INPUT: ", terminator: "")
+            let input = readLine()!
+            return input
         }
-
-        static var moveUserInterface: String {
-            """
-            Which direction do you want to move?
-            | w = north  | a = west | s = south | d = east |
-            | x = cancel |
-            """
-        }
-
-        static var examineUserInterface: String {
-            "Choose something to examine."
-        }
-
         static func endGame() -> Bool {
             print("Game over!")
             return true
-        }
-        static func readInput() -> String {
-            print("INPUT: ", terminator: "")
-            let input = readLine() ?? "X"
-            return input
         }
     }
 
