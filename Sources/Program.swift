@@ -9,15 +9,15 @@ struct Main {
             if !Utilities.Entities.ruok(with: state) {
                 gameOver = Utilities.InputOutput.endGame()
             } else {
-                print(
+                let help = """
+                    SamQuest01 - Commands
+                    w - move north    j - status       h - help
+                    a - move west     i - examine      x - exit
+                    s - move south    k - attack       debug - debug
+                    d - move east     o = talk
                     """
-                    SamQuest01
-                    | w = north  | a = west    | s = south | d = east   |
-                    | ---------- | ----------- | --------- | ---------- |
-                    | c = status | e = examine | t = talk  | k = attack |
-                    | x = exit   | ? = debug   |
-                    """
-                )
+
+                print("SamQuest01")
                 let input = Utilities.InputOutput.readInput()
 
                 switch input.lowercased() {
@@ -25,25 +25,27 @@ struct Main {
                 case "a": print(state.playerCharacter.changePosition(x: -1, y: 0))
                 case "s": print(state.playerCharacter.changePosition(x: -0, y: -1))
                 case "d": print(state.playerCharacter.changePosition(x: 1, y: 0))
-                case "c":
+                case "j", "status":
                     var scene: Status = Status()
                     print(scene.run(with: &state))
-                case "e":
+                case "i", "examine":
                     var scene: Examine = Examine()
                     print(scene.run(with: &state))
-                case "t":
-                    var scene: Talk = Talk()
-                    print(scene.run(with: &state))
-                case "k":
+                case "k", "attack":
                     var scene: Attack = Attack()
                     print(scene.run(with: &state))
-                case "x":
+                case "o", "talk":
+                    var scene: Talk = Talk()
+                    print(scene.run(with: &state))
+                case "h", "help":
+                    print(help)
+                case "debug":
+                    var scene: Debug = Debug()
+                    print(scene.run(with: &state))
+                case "x", "exit", "quit":
                     var scene: Exit = Exit()
                     print(scene.run(with: &state))
                     gameOver = true
-                case "?":
-                    var scene: Debug = Debug()
-                    print(scene.run(with: &state))
                 default:
                     print("Invalid input.")
                     continue
