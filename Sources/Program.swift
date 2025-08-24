@@ -12,17 +12,18 @@ struct Main {
                 print(
                     """
                     SamQuest01
-                    | m = move   | l = locate  | t = talk   |
-                    | c = status | e = examine | a = attack |
+                    | w = north | a = west | s = south | d = east |
+                    |--------------------------------------------------|
+                    | c = status | l = locate | e = examine | t = talk |
+
+                     t = talk   |
+                     e = examine | a = attack |
                     | x = exit   | d = debug
                     """
                 )
                 let input = Utilities.InputOutput.readInput()
                 if input.lowercased() == "c" {
-                    var scene: Check = Check()
-                    print(scene.run(with: &state))
-                } else if input.lowercased() == "l" {
-                    var scene: Locate = Locate()
+                    var scene: Status = Status()
                     print(scene.run(with: &state))
                 } else if input.lowercased() == "m" {
                     var scene: Move = Move()
