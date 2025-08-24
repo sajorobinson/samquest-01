@@ -1,13 +1,13 @@
 import Foundation
 
 class Entity {
-    var name: String
-    var type: EntityType
-    var health: Int
-    var description: String
-    var behavior: EntityBehavior
-    var posX: Int
-    var posY: Int
+    private var _name: String
+    private var _type: EntityType
+    private var _health: Int
+    private var _description: String
+    private var _behavior: EntityBehavior
+    private var _posX: Int
+    private var _posY: Int
 
     init(
         name: String,
@@ -18,85 +18,91 @@ class Entity {
         posX: Int,
         posY: Int
     ) {
-        self.name = name
-        self.type = type
-        self.health = health
-        self.description = description
-        self.behavior = behavior
-        self.posX = posX
-        self.posY = posY
+        self._name = name
+        self._type = type
+        self._health = health
+        self._description = description
+        self._behavior = behavior
+        self._posX = posX
+        self._posY = posY
     }
 
-    func getName() -> String {
-        return self.name
+    var name: String {
+        get { _name }
+        set { _name = newValue }
     }
 
-    func changeName(to newName: String) -> String {
-        self.name = newName
-        return getName()
+    var type: EntityType {
+        get { _type }
+        set { _type = newValue }
     }
 
-    func getType() -> String {
-        return "\(self.type)"
+    var typeString: String {
+        return "\(_type)"
     }
 
-    func changeType(to newType: EntityType) -> String {
-        self.type = newType
-        return getType()
+    var health: Int {
+        get { _health }
+        set { _health = max(0, newValue) }
     }
 
-    func getHealth() -> String {
-        return "\(self.health)"
+    var healthString: String {
+        return "\(_health)"
     }
 
-    func changeHealth(by amount: Int) -> String {
-        self.health += amount
-        return getHealth()
+    var descriptionText: String {
+        get { _description }
+        set { _description = newValue }
     }
 
-    func getDescription() -> String {
-        return self.description
+    var behavior: EntityBehavior {
+        get { _behavior }
+        set { _behavior = newValue }
     }
 
-    func changeDescription(to newDescription: String) -> String {
-        self.description = newDescription
-        return getDescription()
+    var posX: Int {
+        get { _posX }
+        set { _posX = newValue }
     }
 
-    func getBehavior() -> String {
-        return "\(self.behavior)"
+    var posY: Int {
+        get { _posY }
+        set { _posY = newValue }
     }
 
-    func changeBehavior(to newBehavior: EntityBehavior) -> String {
-        self.behavior = newBehavior
-        return getBehavior()
+    var position: (x: Int, y: Int) {
+        get { (_posX, _posY) }
+        set { (_posX, _posY) = (newValue.x, newValue.y) }
     }
 
-    func getPosition() -> String {
-        return "x: \(self.posX), y: \(self.posY)"
+    var positionString: String {
+        return "x: \(_posX), y: \(_posY)"
     }
 
-    func changePosition(x: Int, y: Int) -> String {
-        self.posX += x
-        self.posY += y
-        return getPosition()
+    func changeHealth(by amount: Int) {
+        _health = max(0, _health + amount)
+    }
+
+    func moveBy(x deltaX: Int, y deltaY: Int) {
+        _posX += deltaX
+        _posY += deltaY
     }
 
     func speak() -> String {
-        if self.type == .creature {
-            return "The \(self.getName()) looks at you quizzically."
-        } else if self.type == .item {
-            return "The \(self.getName()) is an inanimate object and can't speak."
-        } else {
-            let things: [String] = [
+        switch _type {
+        case .creature:
+            return "\(name) looks at you quizzically."
+        case .item:
+            return "\(name) is an inanimate object and can't speak."
+        default:
+            let things = [
                 "Hello!",
                 "How are you?",
                 "Nice day we're having.",
                 "Oh no! A pink giraffe!",
                 "Talkin' never did me good.",
             ]
-            let something: String = things.randomElement() ?? "Sorry, I didn't quite catch that."
-            return something
+            return things.randomElement() ?? "Sorry, I didn't quite catch that."
         }
     }
 }

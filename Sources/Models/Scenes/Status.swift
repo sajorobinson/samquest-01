@@ -4,7 +4,7 @@ struct Status: Scene {
         var payloadContainer: [String] = []
         let player = state.playerCharacter
 
-        payloadContainer.append("Your health: \(state.playerCharacter.getHealth())")
+        payloadContainer.append("Your health: \(state.playerCharacter.health)")
         payloadContainer.append("x: \(player.posX), y: \(player.posY)")
 
         if let location = state.locations.first(where: {

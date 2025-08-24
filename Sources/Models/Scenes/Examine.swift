@@ -16,7 +16,7 @@ struct Examine: Scene {
                 if choice == nil {
                     continue
                 } else {
-                    let result = choice!.getDescription()
+                    let result = choice!.descriptionText
                     return result
                 }
             }
