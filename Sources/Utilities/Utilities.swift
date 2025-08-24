@@ -27,10 +27,11 @@ enum Utilities {
             return state.entities.filter { $0.posX == x && $0.posY == y }
         }
         static func printEntities(_ entities: [Entity]) {
-            if entities.count == 0 {
+            guard !entities.isEmpty else {
                 print("No entities.")
+                return
             }
-            for (i, entity) in entities.enumerated() {
+            entities.enumerated().forEach { i, entity in
                 print("[\(i + 1)] \(entity.name)")
             }
         }
@@ -46,24 +47,17 @@ enum Utilities {
             return entities[choice - 1]
         }
     }
-
-    enum Locations {
-        static func getLocationFromPosition(with state: GameState, x: Int, y: Int) -> Location? {
-            for location in state.locations {
-                if location.x == x && location.y == y {
-                    return location
-                }
-            }
-            return nil
-        }
-    }
-
     enum Debug {
         static func listEntities(with state: GameState) -> [String] {
             return state.entities.map { "\($0.name) : \($0.posX) \($0.posY)" }
         }
         static func listLocations(with state: GameState) -> [String] {
-            state.locations.map { "\($0.name): \($0.x) \($0.y)" }
+            return state.locations.map { "\($0.name): \($0.x) \($0.y)" }
+        }
+    }
+    enum Locations {
+        static func getLocationFromPosition(with state: GameState, x: Int, y: Int) -> Location? {
+            return state.locations.first { $0.x == x && $0.y == y }
         }
     }
 }
