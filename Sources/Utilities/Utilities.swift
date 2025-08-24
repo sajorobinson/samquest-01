@@ -1,5 +1,12 @@
 enum Utilities {
 
+    enum Math {
+        static func rng(min: Int, max: Int) -> Int {
+            guard min <= max else { return max }
+            return Int.random(in: min...max)
+        }
+    }
+
     enum InputOutput {
         static func readInput() -> String {
             print("INPUT: ", terminator: "")
@@ -14,11 +21,7 @@ enum Utilities {
 
     enum Entities {
         static func ruok(with state: GameState) -> Bool {
-            if state.playerCharacter.health <= 0 {
-                return false
-            } else {
-                return true
-            }
+            state.playerCharacter.health > 0
         }
         static func listEntitiesAtPosition(with state: GameState, x: Int, y: Int) -> [Entity] {
             var entitiesAtPosition: [Entity] = []

@@ -8,8 +8,8 @@ extension Entity {
             health: 5,
             description: "A friendly goblin.",
             behavior: .passive,
-            posX: Int.random(in: 1..<5),
-            posY: Int.random(in: 1..<5)
+            posX: Utilities.Math.rng(min: 0, max: 5),
+            posY: Utilities.Math.rng(min: 0, max: 5)
         )
     }
 }
