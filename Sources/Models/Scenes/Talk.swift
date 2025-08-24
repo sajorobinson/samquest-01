@@ -3,7 +3,7 @@ struct Talk: Scene {
     mutating func run(with state: inout GameState) -> String {
         while !self.isSceneOver {
             print("Who do you want to talk to?")
-            let entities = Bureaucrat.listEntitiesAtPosition(
+            let entities = Bureaucrat.PopulationsBureau.listEntitiesAtPosition(
                 with: state,
                 x: state.playerCharacter.posX,
                 y: state.playerCharacter.posY
@@ -11,8 +11,8 @@ struct Talk: Scene {
             if entities.count == 0 {
                 return "There's nothing to talk to here."
             } else {
-                Bureaucrat.printEntities(entities)
-                let choice = Bureaucrat.readChosenEntity(entities)
+                Bureaucrat.PopulationsBureau.printEntities(entities)
+                let choice = Bureaucrat.PopulationsBureau.readChosenEntity(entities)
                 if choice == nil {
                     continue
                 } else {

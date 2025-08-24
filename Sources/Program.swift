@@ -8,25 +8,19 @@ struct Main {
         // Game loop
         var gameOver: Bool = false
         while !gameOver {
-            if !Bureaucrat.ruok(with: state) {
+            if !Bureaucrat.HealthBureau.ruok(with: state) {
                 print("Game over!")
                 gameOver = true
             } else {
                 print(
                     """
-                    \n
                     SamQuest01
-
-                    m = move             l = locate      t = talk
-                    c = check status     e = examine     a = attack
-
-                    x = exit
-
+                    | m = move   | l = locate  | t = talk   |
+                    | c = status | e = examine | a = attack |
+                    | x = exit   |
                     """)
 
-                print("INPUT: ", terminator: "")
-                let input = readLine() ?? "C"
-                print("\n")
+                let input = Bureaucrat.CommunicationsBureau.readInput()
 
                 if input.capitalized == "C" {
                     var scene: Check = Check()
