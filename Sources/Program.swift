@@ -18,25 +18,25 @@ struct Main {
                     """
                 )
                 let input = Utilities.InputOutput.readInput()
-                if input.capitalized == "C" {
+                if input.lowercased() == "c" {
                     var scene: Check = Check()
                     print(scene.run(with: &state))
-                } else if input.capitalized == "L" {
+                } else if input.lowercased() == "l" {
                     var scene: Locate = Locate()
                     print(scene.run(with: &state))
-                } else if input.capitalized == "M" {
+                } else if input.lowercased() == "m" {
                     var scene: Move = Move()
                     print(scene.run(with: &state))
-                } else if input.capitalized == "E" {
+                } else if input.lowercased() == "e" {
                     var scene: Examine = Examine()
                     print(scene.run(with: &state))
-                } else if input.capitalized == "T" {
+                } else if input.lowercased() == "t" {
                     var scene: Talk = Talk()
                     print(scene.run(with: &state))
-                } else if input.capitalized == "A" {
+                } else if input.lowercased() == "a" {
                     var scene: Attack = Attack()
                     print(scene.run(with: &state))
-                } else if input.capitalized == "X" {
+                } else if input.lowercased() == "x" {
                     var scene: Exit = Exit()
                     print(scene.run(with: &state))
                     gameOver = true
