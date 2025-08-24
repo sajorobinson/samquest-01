@@ -12,39 +12,39 @@ struct Main {
                 print(
                     """
                     SamQuest01
-                    | w = north | a = west | s = south | d = east |
-                    |--------------------------------------------------|
-                    | c = status | l = locate | e = examine | t = talk |
-
-                     t = talk   |
-                     e = examine | a = attack |
-                    | x = exit   | d = debug
+                    | w = north  | a = west    | s = south | d = east   |
+                    | ---------- | ----------- | --------- | ---------- |
+                    | c = status | e = examine | t = talk  | k = attack |
+                    | x = exit   | ? = debug   |
                     """
                 )
                 let input = Utilities.InputOutput.readInput()
-                if input.lowercased() == "c" {
+
+                switch input.lowercased() {
+                case "w": print(state.playerCharacter.changePosition(x: 0, y: 1))
+                case "a": print(state.playerCharacter.changePosition(x: -1, y: 0))
+                case "s": print(state.playerCharacter.changePosition(x: -0, y: -1))
+                case "d": print(state.playerCharacter.changePosition(x: 1, y: 0))
+                case "c":
                     var scene: Status = Status()
                     print(scene.run(with: &state))
-                } else if input.lowercased() == "m" {
-                    var scene: Move = Move()
-                    print(scene.run(with: &state))
-                } else if input.lowercased() == "e" {
+                case "e":
                     var scene: Examine = Examine()
                     print(scene.run(with: &state))
-                } else if input.lowercased() == "t" {
+                case "t":
                     var scene: Talk = Talk()
                     print(scene.run(with: &state))
-                } else if input.lowercased() == "a" {
+                case "k":
                     var scene: Attack = Attack()
                     print(scene.run(with: &state))
-                } else if input.lowercased() == "x" {
+                case "x":
                     var scene: Exit = Exit()
                     print(scene.run(with: &state))
                     gameOver = true
-                } else if input.lowercased() == "d" {
+                case "?":
                     var scene: Debug = Debug()
                     print(scene.run(with: &state))
-                } else {
+                default:
                     print("Invalid input.")
                     continue
                 }
