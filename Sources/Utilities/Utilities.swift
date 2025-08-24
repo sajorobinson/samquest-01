@@ -47,6 +47,7 @@ enum Utilities {
             return entities[choice - 1]
         }
     }
+
     enum Debug {
         static func listEntities(with state: GameState) -> [String] {
             return state.entities.map { "\($0.name) : \($0.posX) \($0.posY)" }
@@ -55,6 +56,7 @@ enum Utilities {
             return state.locations.map { "\($0.name): \($0.x) \($0.y)" }
         }
     }
+
     enum Locations {
         static func getLocationFromPosition(with state: GameState, x: Int, y: Int) -> Location? {
             return state.locations.first { $0.x == x && $0.y == y }
