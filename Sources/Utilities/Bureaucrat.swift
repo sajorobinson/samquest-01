@@ -1,7 +1,21 @@
 // aka scene manager, but bureaucrat because he interacts w/ the state :)
+// i know this is going to crazy and im going to let it happen
 enum Bureaucrat {
 
     enum CommunicationsBureau {
+        static func printUserInterface() {
+            print(
+                """
+                SamQuest01
+                | m = move   | l = locate  | t = talk   |
+                | c = status | e = examine | a = attack |
+                | x = exit   |
+                """)
+        }
+        static func endGame() -> Bool {
+            print("Game over!")
+            return true
+        }
         static func readInput() -> String {
             print("INPUT: ", terminator: "")
             let input = readLine() ?? "X"

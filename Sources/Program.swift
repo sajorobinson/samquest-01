@@ -3,25 +3,14 @@ import Foundation
 @main
 struct Main {
     static func main() {
-        // Create a game state. TODO: Implement loading a state from a file.
         var state = GameState.defaultGame
-        // Game loop
         var gameOver: Bool = false
         while !gameOver {
             if !Bureaucrat.HealthBureau.ruok(with: state) {
-                print("Game over!")
-                gameOver = true
+                gameOver = Bureaucrat.CommunicationsBureau.endGame()
             } else {
-                print(
-                    """
-                    SamQuest01
-                    | m = move   | l = locate  | t = talk   |
-                    | c = status | e = examine | a = attack |
-                    | x = exit   |
-                    """)
-
+                Bureaucrat.CommunicationsBureau.printUserInterface()
                 let input = Bureaucrat.CommunicationsBureau.readInput()
-
                 if input.capitalized == "C" {
                     var scene: Check = Check()
                     print(scene.run(with: &state))
