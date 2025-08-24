@@ -1,8 +1,7 @@
-// aka scene manager, but bureaucrat because he interacts w/ the state :)
 // i know this is going to crazy and im going to let it happen
-enum Bureaucrat {
+enum Helper {
 
-    enum CommunicationsBureau {
+    enum InputOutput {
 
         static var userInterface: String {
             """
@@ -36,7 +35,7 @@ enum Bureaucrat {
         }
     }
 
-    enum HealthBureau {
+    enum Entities {
         static func ruok(with state: GameState) -> Bool {
             if state.playerCharacter.health <= 0 {
                 return false
@@ -44,9 +43,6 @@ enum Bureaucrat {
                 return true
             }
         }
-    }
-
-    enum PopulationsBureau {
         static func listEntitiesAtPosition(with state: GameState, x: Int, y: Int) -> [Entity] {
             var entitiesAtPosition: [Entity] = []
             for entity in state.entities {
@@ -80,7 +76,7 @@ enum Bureaucrat {
         }
     }
 
-    enum CartographyBureau {
+    enum Locations {
         static func getLocationFromPosition(with state: GameState, x: Int, y: Int) -> Location? {
             for location in state.locations {
                 if location.x == x && location.y == y {

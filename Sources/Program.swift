@@ -6,11 +6,11 @@ struct Main {
         var state = GameState.defaultGame
         var gameOver: Bool = false
         while !gameOver {
-            if !Bureaucrat.HealthBureau.ruok(with: state) {
-                gameOver = Bureaucrat.CommunicationsBureau.endGame()
+            if !Helper.Entities.ruok(with: state) {
+                gameOver = Helper.InputOutput.endGame()
             } else {
-                print(Bureaucrat.CommunicationsBureau.userInterface)
-                let input = Bureaucrat.CommunicationsBureau.readInput()
+                print(Helper.InputOutput.userInterface)
+                let input = Helper.InputOutput.readInput()
                 if input.capitalized == "C" {
                     var scene: Check = Check()
                     print(scene.run(with: &state))
