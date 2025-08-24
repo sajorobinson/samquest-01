@@ -11,17 +11,13 @@ struct Move: Scene {
         print(moveUserInterface)
         let choice = Utilities.InputOutput.readInput()
         if choice.lowercased() == "w" {
-            state.playerCharacter.posY += 1
-            return state.playerCharacter.getPosition()
+            return state.playerCharacter.changePosition(x: 0, y: 1)
         } else if choice.lowercased() == "a" {
-            state.playerCharacter.posX += -1
-            return state.playerCharacter.getPosition()
+            return state.playerCharacter.changePosition(x: -1, y: 0)
         } else if choice.lowercased() == "s" {
-            state.playerCharacter.posY += -1
-            return state.playerCharacter.getPosition()
+            return state.playerCharacter.changePosition(x: -0, y: -1)
         } else if choice.lowercased() == "d" {
-            state.playerCharacter.posX += 1
-            return state.playerCharacter.getPosition()
+            return state.playerCharacter.changePosition(x: 1, y: 0)
         } else if choice.lowercased() == "x" {
             return "Movement canceled."
         } else {
