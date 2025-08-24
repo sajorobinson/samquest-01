@@ -8,7 +8,7 @@ struct Status: Scene {
         }) {
             return """
                 Your health: \(state.playerCharacter.getHealth())
-                x: \(player.posX), y: \(player.posY)
+                Your position: x: \(player.posX), y: \(player.posY)
                 Location: \(location.name)
                 Description: \(location.description)
                 """
