@@ -11,51 +11,53 @@ struct Main {
             } else {
                 let help = """
                     SamQuest01 - Commands
-                    w - move north    j - status       h - help
-                    a - move west     i - examine      x - exit
-                    s - move south    k - attack       debug - debug
-                    d - move east     o = talk
+                    w - move north    j - status       help
+                    a - move west     i - examine      exit
+                    s - move south    k - attack       debug
+                    d - move east     l = talk
                     """
 
                 print("SamQuest01")
-                let input = Utilities.InputOutput.readInput()
+                let input = Utilities.InputOutput.readInput().lowercased()
 
-                switch input.lowercased() {
-                case "w":
-                    state.playerCharacter.moveBy(x: 0, y: 1)
-                    print(state.playerCharacter.position)
-                case "a":
-                    state.playerCharacter.moveBy(x: -1, y: 0)
-                    print(state.playerCharacter.position)
-                case "s":
-                    state.playerCharacter.moveBy(x: -0, y: -1)
-                    print(state.playerCharacter.position)
-                case "d":
-                    state.playerCharacter.moveBy(x: 1, y: 0)
-                    print(state.playerCharacter.position)
-                case "j", "status":
-                    var scene: Status = Status()
-                    print(scene.run(with: &state))
-                case "i", "examine":
-                    var scene: Examine = Examine()
-                    print(scene.run(with: &state))
-                case "k", "attack":
-                    var scene: Attack = Attack()
-                    print(scene.run(with: &state))
-                case "o", "talk":
-                    var scene: Talk = Talk()
-                    print(scene.run(with: &state))
-                case "h", "help":
-                    print(help)
-                case "debug":
-                    var scene: Debug = Debug()
-                    print(scene.run(with: &state))
-                case "x", "exit", "quit":
-                    var scene: Exit = Exit()
-                    print(scene.run(with: &state))
-                    gameOver = true
-                default:
-                    print("Invalid input.")
+                if let userInput = UserInput(rawValue: input) {
+                    switch userInput {
+                    case .north:
+                        state.playerCharacter.moveBy(x: 0, y: 1)
+                        print(state.playerCharacter.position)
+                    case .west:
+                        state.playerCharacter.moveBy(x: -1, y: 0)
+                        print(state.playerCharacter.position)
+                    case .south:
+                        state.playerCharacter.moveBy(x: -0, y: -1)
+                        print(state.playerCharacter.position)
+                    case .east:
+                        state.playerCharacter.moveBy(x: 1, y: 0)
+                        print(state.playerCharacter.position)
+                    case .status:
+                        var scene: Status = Status()
+                        print(scene.run(with: &state))
+                    case .examine:
+                        var scene: Examine = Examine()
+                        print(scene.run(with: &state))
+                    case .attack:
+                        var scene: Attack = Attack()
+                        print(scene.run(with: &state))
+                    case .talk:
+                        var scene: Talk = Talk()
+                        print(scene.run(with: &state))
+                    case .help:
+                        print(help)
+                    case .debug:
+                        var scene: Debug = Debug()
+                        print(scene.run(with: &state))
+                    case .exit:
+                        var scene: Exit = Exit()
+                        print(scene.run(with: &state))
+                        gameOver = true
+                    }
+                } else {
+                    print("Invalid input")
                     continue
                 }
             }
