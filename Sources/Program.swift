@@ -21,10 +21,18 @@ struct Main {
                 let input = Utilities.InputOutput.readInput()
 
                 switch input.lowercased() {
-                case "w": state.playerCharacter.moveBy(x: 0, y: 1)
-                case "a": state.playerCharacter.moveBy(x: -1, y: 0)
-                case "s": state.playerCharacter.moveBy(x: -0, y: -1)
-                case "d": state.playerCharacter.moveBy(x: 1, y: 0)
+                case "w":
+                    state.playerCharacter.moveBy(x: 0, y: 1)
+                    print(state.playerCharacter.position)
+                case "a":
+                    state.playerCharacter.moveBy(x: -1, y: 0)
+                    print(state.playerCharacter.position)
+                case "s":
+                    state.playerCharacter.moveBy(x: -0, y: -1)
+                    print(state.playerCharacter.position)
+                case "d":
+                    state.playerCharacter.moveBy(x: 1, y: 0)
+                    print(state.playerCharacter.position)
                 case "j", "status":
                     var scene: Status = Status()
                     print(scene.run(with: &state))
