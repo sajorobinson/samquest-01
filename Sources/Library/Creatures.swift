@@ -3,7 +3,7 @@ extension Entity {
         Entity(
             name: "Goblin",
             type: .creature,
-            health: 5,
+            initialHealthLevel: .medium2,
             description: "A friendly goblin.",
             behavior: .passive,
             posX: Utilities.Math.rng(min: 0, max: 5),

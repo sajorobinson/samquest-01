@@ -3,6 +3,7 @@ import Foundation
 class Entity {
     private var _name: String
     private var _type: EntityType
+    private var _initialHealthLevel: InitialHealthLevel
     private var _health: Int
     private var _description: String
     private var _behavior: EntityBehavior
@@ -12,7 +13,7 @@ class Entity {
     init(
         name: String,
         type: EntityType,
-        health: Int,
+        initialHealthLevel: InitialHealthLevel,
         description: String,
         behavior: EntityBehavior,
         posX: Int,
@@ -20,7 +21,8 @@ class Entity {
     ) {
         self._name = name
         self._type = type
-        self._health = health
+        self._initialHealthLevel = initialHealthLevel
+        self._health = initialHealthLevel.defaultValue
         self._description = description
         self._behavior = behavior
         self._posX = posX
@@ -41,13 +43,25 @@ class Entity {
         return "\(_type)"
     }
 
+    var initialHealthLevel: InitialHealthLevel {
+        get { _initialHealthLevel }
+        set {
+            _initialHealthLevel = newValue
+            _health = newValue.defaultValue
+        }
+    }
+
     var health: Int {
         get { _health }
-        set { _health = max(0, newValue) }
+        set { _health = clampHealth(newValue) }
+    }
+
+    var maxHealth: Int {
+        return _initialHealthLevel.defaultValue
     }
 
     var healthString: String {
-        return "\(_health)"
+        return "\(_health)/\(maxHealth)"
     }
 
     var descriptionText: String {
@@ -80,7 +94,7 @@ class Entity {
     }
 
     func changeHealth(by amount: Int) {
-        _health = max(0, _health + amount)
+        _health = clampHealth(_health + amount)
     }
 
     func moveBy(x deltaX: Int, y deltaY: Int) {
@@ -104,5 +118,9 @@ class Entity {
             ]
             return things.randomElement() ?? "Sorry, I didn't quite catch that."
         }
+    }
+
+    private func clampHealth(_ value: Int) -> Int {
+        return max(0, min(value, maxHealth))
     }
 }
