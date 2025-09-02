@@ -16,7 +16,17 @@ struct Attack: Scene {
                 if choice == nil {
                     continue
                 } else {
-                    let totalDamage = Int.random(in: 1..<5)
+                    /*
+                    This is where we're introducing the concept of a "turn".
+                    At this point, we know that the player wants to attack
+                    a particular entity. We can pass both the player and the
+                    target into a "Turn" scene. The turn scene will be generic
+                    to handle any transaction. It will determine who goes first
+                    in the transaction based on entity stats. Depending on the
+                    result of the turn, some effect will happen to none, one, or
+                    both (or more?) of the scene participants.
+                    */
+                    let totalDamage = Int.random(in: 1...5)
                     choice!.changeHealth(by: totalDamage)
                     return "You attack \(choice!.name), dealing \(totalDamage) damage."
                 }
