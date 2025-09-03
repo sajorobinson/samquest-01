@@ -3,19 +3,15 @@ struct Attack: Scene {
     mutating func run(with state: inout GameState) -> String {
         while !self.isSceneOver {
             print("Choose something to attack.")
-            let entities = Utilities.Entities.listEntitiesAtPosition(
-                with: state,
-                x: state.playerCharacter.posX,
-                y: state.playerCharacter.posY
-            )
-            if entities.count == 0 {
+            let entitiesAtPosition = state.listEntitiesAtPosition(
+                x: state.playerCharacter.posX, y: state.playerCharacter.posY)
+            if entitiesAtPosition.count == 0 {
                 return "There's nothing to attack here."
             } else {
-                Utilities.Entities.printEntities(entities)
-                let choice = Utilities.Entities.readChosenEntity(entities)
-                if choice == nil {
-                    continue
-                } else {
+                if let chosenEntity = Utilities.InputOutput.chooseFromList(
+                    items: entitiesAtPosition,
+                    display: { $0.name }
+                ) {
                     /*
                     This is where we're introducing the concept of a "turn".
                     At this point, we know that the player wants to attack
@@ -27,8 +23,10 @@ struct Attack: Scene {
                     both (or more?) of the scene participants.
                     */
                     let totalDamage = Int.random(in: 1...5)
-                    choice!.changeHealth(by: totalDamage)
-                    return "You attack \(choice!.name), dealing \(totalDamage) damage."
+                    chosenEntity.changeHealth(by: totalDamage)
+                    return "You attack \(chosenEntity.name), dealing \(totalDamage) damage."
+                } else {
+                    continue
                 }
             }
         }

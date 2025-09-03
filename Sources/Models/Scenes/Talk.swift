@@ -2,22 +2,19 @@ struct Talk: Scene {
     var isSceneOver: Bool = false
     mutating func run(with state: inout GameState) -> String {
         while !self.isSceneOver {
-            print("Who do you want to talk to?")
-            let entities = Utilities.Entities.listEntitiesAtPosition(
-                with: state,
-                x: state.playerCharacter.posX,
-                y: state.playerCharacter.posY
-            )
-            if entities.count == 0 {
-                return "There's nothing to talk to here."
+            print("Choose something to speak to.")
+            let entitiesAtPosition = state.listEntitiesAtPosition(
+                x: state.playerCharacter.posX, y: state.playerCharacter.posY)
+            if entitiesAtPosition.count == 0 {
+                return "There's nothing to speak to here."
             } else {
-                Utilities.Entities.printEntities(entities)
-                let choice = Utilities.Entities.readChosenEntity(entities)
-                if choice == nil {
-                    continue
+                if let chosenEntity = Utilities.InputOutput.chooseFromList(
+                    items: entitiesAtPosition,
+                    display: { $0.name }
+                ) {
+                    return chosenEntity.speak()
                 } else {
-                    let result = choice!.speak()
-                    return result
+                    continue
                 }
             }
         }

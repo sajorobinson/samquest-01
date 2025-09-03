@@ -124,3 +124,29 @@ class Entity {
         return max(0, min(value, maxHealth))
     }
 }
+
+extension Array where Element == Entity {
+    func printEntities() {
+        guard !isEmpty else {
+            print("No entities.")
+            return
+        }
+        enumerated().forEach { i, entity in
+            print("[\(i + 1)] \(entity.name)")
+        }
+    }
+
+    func chooseEntity() -> Entity? {
+        while true {
+            print("Choose an entity by number: ", terminator: "")
+            guard let input = readLine(),
+                let choice = Int(input),
+                (1...count).contains(choice)
+            else {
+                print("Invalid input. Try again.")
+                continue
+            }
+            return self[choice - 1]
+        }
+    }
+}

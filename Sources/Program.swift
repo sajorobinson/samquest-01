@@ -6,7 +6,7 @@ struct Main {
         var state = GameState.defaultGame
         var gameOver: Bool = false
         while !gameOver {
-            if !Utilities.Entities.ruok(with: state) {
+            if !state.isPlayerAlive() {
                 gameOver = Utilities.InputOutput.endGame()
             } else {
                 let help = """
@@ -48,9 +48,6 @@ struct Main {
                         print(scene.run(with: &state))
                     case .help:
                         print(help)
-                    case .debug:
-                        var scene: Debug = Debug()
-                        print(scene.run(with: &state))
                     case .exit:
                         var scene: Exit = Exit()
                         print(scene.run(with: &state))

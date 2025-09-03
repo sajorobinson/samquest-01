@@ -3,21 +3,18 @@ struct Examine: Scene {
     mutating func run(with state: inout GameState) -> String {
         while !self.isSceneOver {
             print("Choose something to examine.")
-            let entities = Utilities.Entities.listEntitiesAtPosition(
-                with: state,
-                x: state.playerCharacter.posX,
-                y: state.playerCharacter.posY
-            )
-            if entities.count == 0 {
-                return "There's nothing to interact with here."
+            let entitiesAtPosition = state.listEntitiesAtPosition(
+                x: state.playerCharacter.posX, y: state.playerCharacter.posY)
+            if entitiesAtPosition.count == 0 {
+                return "There's nothing to examine here."
             } else {
-                Utilities.Entities.printEntities(entities)
-                let choice = Utilities.Entities.readChosenEntity(entities)
-                if choice == nil {
-                    continue
+                if let chosenEntity = Utilities.InputOutput.chooseFromList(
+                    items: entitiesAtPosition,
+                    display: { $0.name }
+                ) {
+                    return chosenEntity.descriptionText
                 } else {
-                    let result = choice!.descriptionText
-                    return result
+                    continue
                 }
             }
         }
