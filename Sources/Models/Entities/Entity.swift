@@ -4,6 +4,17 @@
 
 import Foundation
 
+enum EntityBehavior {
+    case hostile
+    case passive
+}
+
+enum EntityType {
+    case character
+    case creature
+    case item
+}
+
 class Entity {
     private var _name: String
     private var _type: EntityType
