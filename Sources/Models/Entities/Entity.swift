@@ -29,6 +29,8 @@ class Entity {
         self._posY = posY
     }
 
+    // Core entity properties
+
     var name: String {
         get { _name }
         set { _name = newValue }
@@ -42,6 +44,18 @@ class Entity {
     var typeString: String {
         return "\(_type)"
     }
+
+    var descriptionText: String {
+        get { _description }
+        set { _description = newValue }
+    }
+
+    var behavior: EntityBehavior {
+        get { _behavior }
+        set { _behavior = newValue }
+    }
+
+    // Health logic
 
     var initialHealthLevel: InitialHealthLevel {
         get { _initialHealthLevel }
@@ -64,15 +78,15 @@ class Entity {
         return "\(_health)/\(maxHealth)"
     }
 
-    var descriptionText: String {
-        get { _description }
-        set { _description = newValue }
+    func changeHealth(by amount: Int) {
+        _health = clampHealth(_health + amount)
     }
 
-    var behavior: EntityBehavior {
-        get { _behavior }
-        set { _behavior = newValue }
+    private func clampHealth(_ value: Int) -> Int {
+        return max(0, min(value, maxHealth))
     }
+
+    // Position and movement
 
     var posX: Int {
         get { _posX }
@@ -93,14 +107,12 @@ class Entity {
         return "x: \(_posX), y: \(_posY)"
     }
 
-    func changeHealth(by amount: Int) {
-        _health = clampHealth(_health + amount)
-    }
-
     func moveBy(x deltaX: Int, y deltaY: Int) {
         _posX += deltaX
         _posY += deltaY
     }
+
+    // Speech
 
     func speak() -> String {
         switch _type {
@@ -117,36 +129,6 @@ class Entity {
                 "Talkin' never did me good.",
             ]
             return things.randomElement() ?? "Sorry, I didn't quite catch that."
-        }
-    }
-
-    private func clampHealth(_ value: Int) -> Int {
-        return max(0, min(value, maxHealth))
-    }
-}
-
-extension Array where Element == Entity {
-    func printEntities() {
-        guard !isEmpty else {
-            print("No entities.")
-            return
-        }
-        enumerated().forEach { i, entity in
-            print("[\(i + 1)] \(entity.name)")
-        }
-    }
-
-    func chooseEntity() -> Entity? {
-        while true {
-            print("Choose an entity by number: ", terminator: "")
-            guard let input = readLine(),
-                let choice = Int(input),
-                (1...count).contains(choice)
-            else {
-                print("Invalid input. Try again.")
-                continue
-            }
-            return self[choice - 1]
         }
     }
 }
