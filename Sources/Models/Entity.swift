@@ -1,6 +1,5 @@
 // Entity will grow larger!
 // It will look real nice when it's done.
-// That's a good plan, general.
 
 import Foundation
 
