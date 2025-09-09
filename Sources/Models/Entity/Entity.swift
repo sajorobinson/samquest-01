@@ -69,17 +69,27 @@ class Entity {
 
     // Health logic
 
+    var maxHealth: Int {
+        self.stats.endurance * 10
+    }
+
     var health: Int {
-        get { _health }
-        set { _health = newValue }
+        _health
     }
 
     var healthString: String {
-        return "\(_health)"
+        return "\(_health) / \(maxHealth)"
     }
 
     func changeHealth(by amount: Int) {
-        _health = _health + amount
+        let change = _health + amount
+        if change >= maxHealth {
+            _health = maxHealth
+        } else if change <= 0 {
+            _health = 0
+        } else {
+            _health = _health + amount
+        }
     }
 
     // Position and movement
