@@ -1,6 +1,3 @@
-// Entity will grow larger!
-// It will look real nice when it's done.
-
 import Foundation
 
 enum InitialHealthLevel: String, CaseIterable {
