@@ -6,6 +6,15 @@ struct Status: Scene {
 
         payloadContainer.append("Your health: \(state.playerCharacter.health)")
         payloadContainer.append("x: \(player.posX), y: \(player.posY)")
+        payloadContainer.append(
+            """
+            strength: \(player.stats.strength)
+            agility: \(player.stats.agility)
+            mystique: \(player.stats.strength)
+            understanding: \(player.stats.understanding)
+            endurance: \(player.stats.endurance)
+            logic: \(player.stats.logic)
+            """)
 
         if let location = state.locations.first(where: {
             $0.x == player.posX && $0.y == player.posY

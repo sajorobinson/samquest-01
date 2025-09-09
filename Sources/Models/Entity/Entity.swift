@@ -1,75 +1,48 @@
 import Foundation
 
-enum InitialHealthLevel: String, CaseIterable {
-    case low1, low2, low3
-    case medium1, medium2, medium3
-    case high1, high2, high3
-    case max
-
-    var label: String {
-        switch self {
-        case .low1, .low2, .low3: return "Low"
-        case .medium1, .medium2, .medium3: return "Medium"
-        case .high1, .high2, .high3: return "High"
-        case .max: return "Maximum"
-        }
-    }
-
-    var tier: Int {
-        switch self {
-        case .low1: return 1
-        case .low2: return 2
-        case .low3: return 3
-        case .medium1: return 4
-        case .medium2: return 5
-        case .medium3: return 6
-        case .high1: return 7
-        case .high2: return 8
-        case .high3: return 9
-        case .max: return 10
-        }
-    }
-
-    var defaultValue: Int {
-        return tier * 10
-    }
-}
-
 class Entity {
     private var _name: String
-    private var _type: EntityType
-    private var _initialHealthLevel: InitialHealthLevel
-    private var _health: Int
     private var _description: String
+    private var _type: EntityType
     private var _behavior: EntityBehavior
+    private var _stats: EntityStats
+    private var _health: Int
     private var _posX: Int
     private var _posY: Int
 
     init(
         name: String,
-        type: EntityType,
-        initialHealthLevel: InitialHealthLevel,
         description: String,
+        type: EntityType,
         behavior: EntityBehavior,
+        stats: EntityStats,
+        health: Int,
         posX: Int,
         posY: Int
     ) {
         self._name = name
-        self._type = type
-        self._initialHealthLevel = initialHealthLevel
-        self._health = initialHealthLevel.defaultValue
         self._description = description
+        self._type = type
         self._behavior = behavior
+        self._stats = stats
+        self._health = health
         self._posX = posX
         self._posY = posY
     }
 
-    // Core entity properties
+    // Entity name and description
 
     var name: String {
         get { _name }
         set { _name = newValue }
     }
+
+    var descriptionText: String {
+        get { _description }
+        set { _description = newValue }
+    }
+
+    // Entity type
 
     var type: EntityType {
         get { _type }
@@ -80,45 +53,33 @@ class Entity {
         return "\(_type)"
     }
 
-    var descriptionText: String {
-        get { _description }
-        set { _description = newValue }
-    }
+    // Entity behavior
 
     var behavior: EntityBehavior {
         get { _behavior }
         set { _behavior = newValue }
     }
 
-    // Health logic
+    // Entity stats
 
-    var initialHealthLevel: InitialHealthLevel {
-        get { _initialHealthLevel }
-        set {
-            _initialHealthLevel = newValue
-            _health = newValue.defaultValue
-        }
+    var stats: EntityStats {
+        get { _stats }
+        set { _stats = newValue }
     }
+
+    // Health logic
 
     var health: Int {
         get { _health }
-        set { _health = clampHealth(newValue) }
-    }
-
-    var maxHealth: Int {
-        return _initialHealthLevel.defaultValue
+        set { _health = newValue }
     }
 
     var healthString: String {
-        return "\(_health)/\(maxHealth)"
+        return "\(_health)"
     }
 
     func changeHealth(by amount: Int) {
-        _health = clampHealth(_health + amount)
-    }
-
-    private func clampHealth(_ value: Int) -> Int {
-        return max(0, min(value, maxHealth))
+        _health = _health + amount
     }
 
     // Position and movement

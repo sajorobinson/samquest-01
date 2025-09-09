@@ -2,10 +2,11 @@ extension Entity {
     static var player: Entity {
         Entity(
             name: "Sam",
-            type: .character,
-            initialHealthLevel: .max,
             description: "The main character of this game.",
+            type: .character,
             behavior: .passive,
+            stats: EntityStats.basic,
+            health: 100,
             posX: 0,
             posY: 0
         )
@@ -14,10 +15,11 @@ extension Entity {
     static var author: Entity {
         Entity(
             name: "Yu Miri",
-            type: .character,
-            initialHealthLevel: .max,
             description: "The author of the novel 'The End of August'.",
+            type: .character,
             behavior: .passive,
+            stats: EntityStats.basic,
+            health: 100,
             posX: 0,
             posY: 0
         )
