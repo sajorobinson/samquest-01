@@ -21,6 +21,6 @@ struct Talk: Scene {
                 }
             }
         }
-        return OutputText.defaultResponseMessage
+        return OutputText.defaultResponseText
     }
 }

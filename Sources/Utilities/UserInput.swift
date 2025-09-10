@@ -9,12 +9,10 @@ enum UserInput: String {
     // Action commands
     case status = "j"
     case examine = "i"
-    case attack = "k"
     case talk = "l"
     
     // Utility commands
     case help = "help"
-    case debug = "debug"
     case exit = "exit"
     
 }

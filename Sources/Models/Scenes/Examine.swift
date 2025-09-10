@@ -24,6 +24,6 @@ struct Examine: Scene {
                 }
             }
         }
-        return OutputText.defaultResponseMessage
+        return OutputText.defaultResponseText
     }
 }

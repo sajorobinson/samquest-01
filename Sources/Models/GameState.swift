@@ -11,10 +11,7 @@ struct GameState {
 }
 
 extension GameState {
-    func isPlayerAlive() -> Bool {
-        return playerCharacter.entityHealth.value > 0
-    }
-
+    
     func listEntitiesAtPosition(x: Int, y: Int) -> [Entity] {
         return entities.filter { $0.entityPosition.x == x && $0.entityPosition.y == y }
     }

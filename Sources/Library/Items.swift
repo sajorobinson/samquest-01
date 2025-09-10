@@ -7,14 +7,11 @@ extension Entity {
                 text: "A book written by the author Yu Miri"
             ),
             entityType: .item,
-            entityBehavior: .passive,
             entityAttributes: EntityAttributes.basic,
-            entitySkills: EntitySkills.basic,
             entityPosition: EntityPosition(
                 x: 0,
                 y: 0
-            ),
-            entityHealth: EntityHealth.low
+            )
         )
     }
     
@@ -25,14 +22,11 @@ extension Entity {
                 text: "This map leads to buried treasure."
             ),
             entityType: .item,
-            entityBehavior: .passive,
             entityAttributes: EntityAttributes.basic,
-            entitySkills: EntitySkills.basic,
             entityPosition: EntityPosition(
                 x: 0,
                 y: 0
-            ),
-            entityHealth: EntityHealth.low
+            )
         )
     }
     

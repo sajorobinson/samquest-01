@@ -5,33 +5,24 @@ final class Entity {
     private(set) var entityName: EntityName
     private(set) var entityDescription: EntityDescription
     private(set) var entityType: EntityType
-    private(set) var entityBehavior: EntityBehavior
     private(set) var entityAttributes: EntityAttributes
-    private(set) var entitySkills: EntitySkills
     private(set) var entityPosition: EntityPosition
-    private(set) var entityHealth: EntityHealth
     
     init(
         entityName: EntityName,
         entityDescription: EntityDescription,
         entityType: EntityType,
-        entityBehavior: EntityBehavior,
         entityAttributes: EntityAttributes,
-        entitySkills: EntitySkills,
-        entityPosition: EntityPosition,
-        entityHealth: EntityHealth
+        entityPosition: EntityPosition
     ) {
         self.entityName = entityName
         self.entityDescription = entityDescription
         self.entityType = entityType
-        self.entityBehavior = entityBehavior
         self.entityAttributes = entityAttributes
-        self.entitySkills = entitySkills
         self.entityPosition = entityPosition
-        self.entityHealth = entityHealth
     }
-    
-    // MARK: Name & description
+        
+    // MARK: Name, description, & type
     
     func setEntityNameValue(_ newValue: String) {
         entityName.value = newValue
@@ -40,15 +31,9 @@ final class Entity {
     func setEntityDescriptionValue(_ newValue: String) {
         entityDescription.value = newValue
     }
-    
-    // MARK: Type & behavior
-    
+        
     func setEntityType(_ newValue: EntityType) {
         entityType = newValue
-    }
-    
-    func setEntityBehavior(_ newValue: EntityBehavior) {
-        entityBehavior = newValue
     }
     
     // MARK: Attributes
@@ -81,12 +66,6 @@ final class Entity {
         entityAttributes.logic = newValue
     }
     
-    // MARK: Skills
-    
-    func setEntitySkills(_ newValue: EntitySkills) {
-        entitySkills = newValue
-    }
-    
     // MARK: Position
     
     func setEntityPosition(_ newValue: EntityPosition) {
@@ -96,16 +75,6 @@ final class Entity {
     func changeEntityPosition(x deltaX: Int, y deltaY: Int) {
         entityPosition.x += deltaX
         entityPosition.y += deltaY
-    }
-    
-    // MARK: Health
-    
-    func setEntityHealth(_ newValue: EntityHealth) {
-        entityHealth = newValue
-    }
-    
-    func changeEntityHealthValue(_ delta: Int){
-        entityHealth.value += delta
     }
     
     // MARK: Future features below
