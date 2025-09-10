@@ -13,5 +13,6 @@ enum UserInput: String {
 
     // Utility commands
     case help = "help"
+    case debug = "debug"
     case exit = "exit"
 }

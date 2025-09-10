@@ -48,6 +48,8 @@ struct Main {
                         print(scene.run(with: &state))
                     case .help:
                         print(help)
+                    case .debug:
+                        state.playerCharacter.changeHealth(by: -50)
                     case .exit:
                         var scene: Exit = Exit()
                         print(scene.run(with: &state))
