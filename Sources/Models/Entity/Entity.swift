@@ -33,16 +33,12 @@ final class Entity {
     
     // MARK: Name & description
     
-    func setEntityNameFirst(_ newValue: String) {
-        entityName.first = newValue
-    }
-    
-    func setEntityNameLast(_ newValue: String) {
-        entityName.last = newValue
+    func setEntityNameValue(_ newValue: String) {
+        entityName.value = newValue
     }
     
     func setEntityDescriptionValue(_ newValue: String) {
-        entityDescription.text = newValue
+        entityDescription.value = newValue
     }
     
     // MARK: Type & behavior
@@ -117,9 +113,9 @@ final class Entity {
     func speak() -> String {
         switch entityType {
         case .creature:
-            return "\(entityName.combined) looks at you quizzically."
+            return "\(entityName.value) looks at you quizzically."
         case .item:
-            return "\(entityName.combined) is an inanimate object and can't speak."
+            return "\(entityName.value) is an inanimate object and can't speak."
         default:
             let things = [
                 "Hello!",

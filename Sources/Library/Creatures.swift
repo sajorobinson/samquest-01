@@ -1,10 +1,7 @@
 extension Entity {
     static var goblin: Entity {
         Entity(
-            entityName: EntityName(
-                first: "Goblin",
-                last: ""
-            ),
+            entityName: EntityName(value: "Goblin"),
             entityDescription: EntityDescription(
                 text: "A friendly goblin."
             ),

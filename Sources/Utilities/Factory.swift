@@ -24,6 +24,7 @@ enum Factory {
     static func spawnItems() -> [Entity] {
         var items: [Entity] = []
         items += [Entity.book]
+        items += [Entity.map]
         return items
     }
 

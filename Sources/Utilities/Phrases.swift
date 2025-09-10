@@ -15,6 +15,6 @@ struct Phrases {
         return "There's nothing to \(verb) here."
     }
     static func youAttack(_ target: Entity, _ damage: Int) -> String {
-        return "You attack \(target.entityName.combined), dealing \(damage) damage."
+        return "You attack \(target.entityName.value), dealing \(damage) damage."
     }
 }

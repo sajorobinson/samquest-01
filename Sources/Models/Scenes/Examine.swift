@@ -16,9 +16,9 @@ struct Examine: Scene {
             } else {
                 if let chosenEntity = Utilities.InputOutput.chooseFromList(
                     items: entitiesAtPosition,
-                    display: { $0.entityName.combined }
+                    display: { $0.entityName.value }
                 ) {
-                    return chosenEntity.entityDescription.text
+                    return chosenEntity.entityDescription.value
                 } else {
                     continue
                 }

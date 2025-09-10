@@ -24,7 +24,7 @@ extension GameState {
     }
 
     var entitySummaries: [String] {
-        entities.map { "\($0.entityName.combined) : \($0.entityPosition.x) \($0.entityPosition.y)" }
+        entities.map { "\($0.entityName.value) : \($0.entityPosition.x) \($0.entityPosition.y)" }
     }
 
     var locationSummaries: [String] {

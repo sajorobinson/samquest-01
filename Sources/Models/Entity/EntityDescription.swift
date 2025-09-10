@@ -1,7 +1,7 @@
 struct EntityDescription {
-    var text: String
+    var value: String
     
     init(text: String) {
-        self.text = text
+        self.value = text
     }
 }
