@@ -1,2 +1,3 @@
 # SamQuest01
-A text-based RPG I'm writing in Swift as I explore command-driven gameplay and simple RPG systems.
+
+A text-based "game". This is a project for me to explore command-driven gameplay and simple RPG systems.
