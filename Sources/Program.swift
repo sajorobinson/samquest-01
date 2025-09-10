@@ -4,7 +4,9 @@ import Foundation
 struct Main {
     static func main() {
         var state = GameState.defaultGame
+
         var gameOver: Bool = false
+
         while !gameOver {
             if !state.isPlayerAlive() {
                 gameOver = Utilities.InputOutput.endGame()
@@ -18,6 +20,7 @@ struct Main {
                     """
 
                 print("SamQuest01")
+
                 let input = Utilities.InputOutput.readInput().lowercased()
 
                 if let userInput = UserInput(rawValue: input) {
@@ -49,7 +52,7 @@ struct Main {
                     case .help:
                         print(help)
                     case .debug:
-                        state.playerCharacter.changeHealth(by: -50)
+                        state.playerCharacter.changeHealth(by: 50)
                     case .exit:
                         var scene: Exit = Exit()
                         print(scene.run(with: &state))

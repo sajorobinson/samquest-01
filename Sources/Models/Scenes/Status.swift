@@ -1,7 +1,9 @@
 struct Status: Scene {
     var isSceneOver: Bool = false
+
     mutating func run(with state: inout GameState) -> String {
         var payloadContainer: [String] = []
+
         let player = state.playerCharacter
 
         payloadContainer.append("Your health: \(state.playerCharacter.health)")
@@ -24,6 +26,7 @@ struct Status: Scene {
         } else {
             payloadContainer.append("There's nothing here.")
         }
+
         return payloadContainer.joined(separator: "\n")
     }
 }

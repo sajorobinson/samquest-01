@@ -6,6 +6,7 @@ enum Utilities {
             let input = readLine()!
             return input
         }
+
         static func chooseFromList<T>(items: [T], display: (T) -> String) -> T? {
             for (index, item) in items.enumerated() {
                 print("\(index + 1) - \(display(item))")
@@ -21,6 +22,7 @@ enum Utilities {
             }
             return items[selection - 1]
         }
+
         static func endGame() -> Bool {
             print("Game over!")
             return true
