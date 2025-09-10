@@ -1,6 +1,6 @@
 import Foundation
 
-class Entity {
+final class Entity {
     private var _name: String
     private var _description: String
     private var _type: EntityType
