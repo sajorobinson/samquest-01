@@ -1,4 +1,5 @@
 struct EntitySkills {
+    
     var skill1: Int
     var skill2: Int
     var skill3: Int
@@ -12,4 +13,5 @@ struct EntitySkills {
         self.skill2 = skill2
         self.skill3 = skill3
     }
+    
 }

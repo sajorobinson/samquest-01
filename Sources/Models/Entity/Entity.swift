@@ -127,4 +127,5 @@ final class Entity {
             return things.randomElement() ?? "Sorry, I didn't quite catch that."
         }
     }
+    
 }

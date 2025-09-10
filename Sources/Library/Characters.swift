@@ -1,4 +1,5 @@
 extension Entity {
+    
     static var player: Entity {
         Entity(
             entityName: EntityName(value: "Sam Robinson"),
@@ -13,7 +14,7 @@ extension Entity {
             entityHealth: EntityHealth.high
         )
     }
-
+    
     static var author: Entity {
         Entity(
             entityName: EntityName(value: "Yu Miri"),
@@ -28,4 +29,5 @@ extension Entity {
             entityHealth: EntityHealth.high
         )
     }
+    
 }

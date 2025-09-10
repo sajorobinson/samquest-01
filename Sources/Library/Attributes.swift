@@ -1,4 +1,5 @@
 extension EntityAttributes {
+    
     static var basic: EntityAttributes {
         let entityAttributes = EntityAttributes(
             strength: 10,
@@ -10,4 +11,5 @@ extension EntityAttributes {
         )
         return entityAttributes
     }
+    
 }

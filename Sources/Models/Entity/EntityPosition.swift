@@ -1,4 +1,5 @@
 struct EntityPosition {
+    
     var x: Int
     var y: Int
     
@@ -10,4 +11,5 @@ struct EntityPosition {
     var positionString: String {
         return "x: \(x), y: \(y)"
     }
+    
 }

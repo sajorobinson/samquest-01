@@ -1,4 +1,5 @@
 enum Factory {
+    
     /// This machine spawns things.
     static func spawn<T>(count: Int, factory: () -> T) -> [T] {
         var results: [T] = []

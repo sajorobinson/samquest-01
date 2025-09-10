@@ -1,4 +1,5 @@
 extension Entity {
+    
     static var goblin: Entity {
         Entity(
             entityName: EntityName(value: "Goblin"),
@@ -16,4 +17,5 @@ extension Entity {
             entityHealth: EntityHealth.medium
         )
     }
+    
 }

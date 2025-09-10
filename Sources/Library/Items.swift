@@ -1,4 +1,5 @@
 extension Entity {
+    
     static var book: Entity {
         Entity(
             entityName: EntityName(value: "The End of August"),
@@ -16,6 +17,7 @@ extension Entity {
             entityHealth: EntityHealth.low
         )
     }
+    
     static var map: Entity {
         Entity(
             entityName: EntityName(value: "Map"),
@@ -33,4 +35,5 @@ extension Entity {
             entityHealth: EntityHealth.low
         )
     }
+    
 }

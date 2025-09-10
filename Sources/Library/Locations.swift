@@ -1,4 +1,5 @@
 extension Location {
+    
     static var villageSquare: Location {
         Location(
             name: "Village square",
@@ -7,7 +8,7 @@ extension Location {
             y: 0
         )
     }
-
+    
     static var goblinCave: Location {
         Location(
             name: "Goblin Cave",
@@ -16,4 +17,5 @@ extension Location {
             y: 1
         )
     }
+    
 }

@@ -1,4 +1,5 @@
 extension EntitySkills {
+    
     static var basic: EntitySkills {
         let entitySkills = EntitySkills(
             skill1: 10,
@@ -7,4 +8,5 @@ extension EntitySkills {
         )
         return entitySkills
     }
+    
 }

@@ -1,24 +1,22 @@
 import Foundation
 
 @main
-struct Main {
-    static func main() {
-        var state = GameState.defaultGame
 
+struct Main {
+    
+    static func main() {
+        
+        var state = GameState.defaultGame
         var gameOver: Bool = false
 
         while !gameOver {
+            
             if !state.isPlayerAlive() {
                 gameOver = Utilities.InputOutput.endGame()
-            } else {
-                let help = """
-                    SamQuest01 - Commands
-                    w - move north    j - status       help
-                    a - move west     i - examine      exit
-                    s - move south    k - attack       debug
-                    d - move east     l = talk
-                    """
-
+            }
+            
+            else {
+                
                 print("SamQuest01")
 
                 let input = Utilities.InputOutput.readInput().lowercased()
@@ -50,7 +48,7 @@ struct Main {
                         var scene: Talk = Talk()
                         print(scene.run(with: &state))
                     case .help:
-                        print(help)
+                        print(OutputText.menuHelpText)
                     case .debug:
                         state.playerCharacter.changeEntityHealthValue(-50)
                     case .exit:

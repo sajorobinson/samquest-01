@@ -4,7 +4,7 @@ struct Examine: Scene {
     mutating func run(with state: inout GameState) -> String {
         while !self.isSceneOver {
 
-            print(Phrases.chooseTo(.examine))
+            print(OutputText.chooseTo(.examine))
 
             let entitiesAtPosition = state.listEntitiesAtPosition(
                 x: state.playerCharacter.entityPosition.x,
@@ -12,7 +12,7 @@ struct Examine: Scene {
             )
 
             if entitiesAtPosition.count == 0 {
-                return Phrases.nothingTo(.examine)
+                return OutputText.nothingTo(.examine)
             } else {
                 if let chosenEntity = Utilities.InputOutput.chooseFromList(
                     items: entitiesAtPosition,
@@ -24,6 +24,6 @@ struct Examine: Scene {
                 }
             }
         }
-        return Phrases.defaultResponse
+        return OutputText.defaultResponseMessage
     }
 }

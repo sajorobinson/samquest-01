@@ -1,4 +1,5 @@
 struct EntityAttributes {
+    
     var strength: Int
     var agility: Int
     var mystique: Int
@@ -21,5 +22,6 @@ struct EntityAttributes {
         self.endurance = endurance
         self.logic = logic
     }
+    
 }
 
