@@ -34,8 +34,8 @@ struct Main {
                     state.playerCharacter.changeEntityPosition(x: 1, y: 0)
                     print(state.playerCharacter.entityPosition.positionString)
                     
-                case .status:
-                    var scene: Status = Status()
+                case .info:
+                    var scene: Info = Info()
                     print(scene.run(with: &state))
                     
                 case .examine:
@@ -49,7 +49,7 @@ struct Main {
                 case .help:
                     print(OutputText.menuHelpText)
                     
-                case .exit:
+                case .quit:
                     var scene: Exit = Exit()
                     print(scene.run(with: &state))
                     gameOver = true

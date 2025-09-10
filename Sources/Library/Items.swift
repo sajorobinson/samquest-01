@@ -7,7 +7,6 @@ extension Entity {
                 text: "A book written by the author Yu Miri"
             ),
             entityType: .item,
-            entityAttributes: EntityAttributes.basic,
             entityPosition: EntityPosition(
                 x: 0,
                 y: 0
@@ -22,7 +21,6 @@ extension Entity {
                 text: "This map leads to buried treasure."
             ),
             entityType: .item,
-            entityAttributes: EntityAttributes.basic,
             entityPosition: EntityPosition(
                 x: 0,
                 y: 0

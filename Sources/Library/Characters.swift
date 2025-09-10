@@ -7,7 +7,6 @@ extension Entity {
                 text: "The main character of this game."
             ),
             entityType: .character,
-            entityAttributes: EntityAttributes.basic,
             entityPosition: EntityPosition(x: 0, y: 0)
         )
     }
@@ -19,7 +18,6 @@ extension Entity {
                 text: "The author of the book 'The End of August'."
             ),
             entityType: .character,
-            entityAttributes: EntityAttributes.basic,
             entityPosition: EntityPosition(x: 0, y: 0)
         )
     }

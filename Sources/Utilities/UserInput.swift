@@ -7,12 +7,12 @@ enum UserInput: String {
     case east = "d"
     
     // Action commands
-    case status = "j"
-    case examine = "i"
+    case info = "i"
+    case examine = "j"
     case talk = "l"
     
     // Utility commands
     case help = "help"
-    case exit = "exit"
+    case quit = "q"
     
 }

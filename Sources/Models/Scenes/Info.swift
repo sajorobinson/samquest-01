@@ -1,4 +1,4 @@
-struct Status: Scene {
+struct Info: Scene {
     
     var isSceneOver: Bool = false
 

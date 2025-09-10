@@ -7,7 +7,6 @@ extension Entity {
                 text: "A friendly goblin."
             ),
             entityType: .character,
-            entityAttributes: EntityAttributes.basic,
             entityPosition: EntityPosition(
                 x: Int.random(min:0, max:5),
                 y: Int.random(min: 0, max: 5)
