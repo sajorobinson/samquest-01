@@ -1,6 +1,6 @@
-extension EntityStats {
-    static var basic: EntityStats {
-        let stats = EntityStats(
+extension EntityAttributes {
+    static var basic: EntityAttributes {
+        let entityAttributes = EntityAttributes(
             strength: 10,
             agility: 10,
             mystique: 10,
@@ -8,6 +8,6 @@ extension EntityStats {
             endurance: 10,
             logic: 10
         )
-        return stats
+        return entityAttributes
     }
 }

@@ -26,17 +26,17 @@ struct Main {
                 if let userInput = UserInput(rawValue: input) {
                     switch userInput {
                     case .north:
-                        state.playerCharacter.moveBy(x: 0, y: 1)
-                        print(state.playerCharacter.position)
+                        state.playerCharacter.changeEntityPosition(x: 0, y: 1)
+                        print(state.playerCharacter.entityPosition.positionString)
                     case .west:
-                        state.playerCharacter.moveBy(x: -1, y: 0)
-                        print(state.playerCharacter.position)
+                        state.playerCharacter.changeEntityPosition(x: -1, y: 0)
+                        print(state.playerCharacter.entityPosition.positionString)
                     case .south:
-                        state.playerCharacter.moveBy(x: -0, y: -1)
-                        print(state.playerCharacter.position)
+                        state.playerCharacter.changeEntityPosition(x: 0, y: -1)
+                        print(state.playerCharacter.entityPosition.positionString)
                     case .east:
-                        state.playerCharacter.moveBy(x: 1, y: 0)
-                        print(state.playerCharacter.position)
+                        state.playerCharacter.changeEntityPosition(x: 1, y: 0)
+                        print(state.playerCharacter.entityPosition.positionString)
                     case .status:
                         var scene: Status = Status()
                         print(scene.run(with: &state))
@@ -52,7 +52,7 @@ struct Main {
                     case .help:
                         print(help)
                     case .debug:
-                        state.playerCharacter.changeHealth(by: 50)
+                        state.playerCharacter.changeEntityHealthValue(-50)
                     case .exit:
                         var scene: Exit = Exit()
                         print(scene.run(with: &state))

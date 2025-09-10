@@ -7,17 +7,19 @@ struct Attack: Scene {
             print(Phrases.chooseTo(.attack))
 
             let entitiesAtPosition = state.listEntitiesAtPosition(
-                x: state.playerCharacter.posX, y: state.playerCharacter.posY)
+                x: state.playerCharacter.entityPosition.x,
+                y: state.playerCharacter.entityPosition.y
+            )
 
             if entitiesAtPosition.count == 0 {
                 return Phrases.nothingTo(.attack)
             } else {
                 if let chosenEntity = Utilities.InputOutput.chooseFromList(
                     items: entitiesAtPosition,
-                    display: { $0.name }
+                    display: { $0.entityName.combined }
                 ) {
                     let totalDamage = Int.random(in: 1...5)
-                    chosenEntity.changeHealth(by: totalDamage)
+                    chosenEntity.changeEntityHealthValue(-totalDamage)
                     return Phrases.youAttack(chosenEntity, totalDamage)
                 } else {
                     continue

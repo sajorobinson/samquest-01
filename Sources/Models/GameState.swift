@@ -12,11 +12,11 @@ struct GameState {
 
 extension GameState {
     func isPlayerAlive() -> Bool {
-        return playerCharacter.health > 0
+        return playerCharacter.entityHealth.value > 0
     }
 
     func listEntitiesAtPosition(x: Int, y: Int) -> [Entity] {
-        return entities.filter { $0.posX == x && $0.posY == y }
+        return entities.filter { $0.entityPosition.x == x && $0.entityPosition.y == y }
     }
 
     func getLocationFromPosition(x: Int, y: Int) -> Location? {
@@ -24,7 +24,7 @@ extension GameState {
     }
 
     var entitySummaries: [String] {
-        entities.map { "\($0.name) : \($0.posX) \($0.posY)" }
+        entities.map { "\($0.entityName.combined) : \($0.entityPosition.x) \($0.entityPosition.y)" }
     }
 
     var locationSummaries: [String] {

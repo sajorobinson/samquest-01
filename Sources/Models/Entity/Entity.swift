@@ -1,131 +1,125 @@
 import Foundation
 
 final class Entity {
-    private var _name: String
-    private var _description: String
-    private var _type: EntityType
-    private var _behavior: EntityBehavior
-    private var _stats: EntityStats
-    private var _health: Int
-    private var _posX: Int
-    private var _posY: Int
-
+    
+    private(set) var entityName: EntityName
+    private(set) var entityDescription: EntityDescription
+    private(set) var entityType: EntityType
+    private(set) var entityBehavior: EntityBehavior
+    private(set) var entityAttributes: EntityAttributes
+    private(set) var entitySkills: EntitySkills
+    private(set) var entityPosition: EntityPosition
+    private(set) var entityHealth: EntityHealth
+    
     init(
-        name: String,
-        description: String,
-        type: EntityType,
-        behavior: EntityBehavior,
-        stats: EntityStats,
-        health: Int,
-        posX: Int,
-        posY: Int
+        entityName: EntityName,
+        entityDescription: EntityDescription,
+        entityType: EntityType,
+        entityBehavior: EntityBehavior,
+        entityAttributes: EntityAttributes,
+        entitySkills: EntitySkills,
+        entityPosition: EntityPosition,
+        entityHealth: EntityHealth
     ) {
-        self._name = name
-        self._description = description
-        self._type = type
-        self._behavior = behavior
-        self._stats = stats
-        self._health = health
-        self._posX = posX
-        self._posY = posY
+        self.entityName = entityName
+        self.entityDescription = entityDescription
+        self.entityType = entityType
+        self.entityBehavior = entityBehavior
+        self.entityAttributes = entityAttributes
+        self.entitySkills = entitySkills
+        self.entityPosition = entityPosition
+        self.entityHealth = entityHealth
     }
-
-    // Entity name and description
-
-    var name: String {
-        get { _name }
-        set { _name = newValue }
+    
+    // MARK: Name & description
+    
+    func setEntityNameFirst(_ newValue: String) {
+        entityName.first = newValue
     }
-
-    var descriptionText: String {
-        get { _description }
-        set { _description = newValue }
+    
+    func setEntityNameLast(_ newValue: String) {
+        entityName.last = newValue
     }
-
-    // Entity type
-
-    var type: EntityType {
-        get { _type }
-        set { _type = newValue }
+    
+    func setEntityDescriptionValue(_ newValue: String) {
+        entityDescription.text = newValue
     }
-
-    var typeString: String {
-        return "\(_type)"
+    
+    // MARK: Type & behavior
+    
+    func setEntityType(_ newValue: EntityType) {
+        entityType = newValue
     }
-
-    // Entity behavior
-
-    var behavior: EntityBehavior {
-        get { _behavior }
-        set { _behavior = newValue }
+    
+    func setEntityBehavior(_ newValue: EntityBehavior) {
+        entityBehavior = newValue
     }
-
-    // Entity stats
-
-    var stats: EntityStats {
-        get { _stats }
-        set { _stats = newValue }
+    
+    // MARK: Attributes
+    
+    func setEntityAttributes(_ newValue: EntityAttributes) {
+        entityAttributes = newValue
     }
-
-    // Health logic
-
-    var maxHealth: Int {
-        self.stats.endurance * 10
+    
+    func setEntityAttributesStrength(_ newValue: Int) {
+        entityAttributes.strength = newValue
     }
-
-    var health: Int {
-        _health
+    
+    func setEntityAttributesAgility(_ newValue: Int) {
+        entityAttributes.agility = newValue
     }
-
-    var healthString: String {
-        return "\(_health) / \(maxHealth)"
+    
+    func setEntityAttributesMystique(_ newValue: Int) {
+        entityAttributes.mystique = newValue
     }
-
-    func changeHealth(by amount: Int) {
-        let change = _health + amount
-        if change >= maxHealth {
-            _health = maxHealth
-        } else if change <= 0 {
-            _health = 0
-        } else {
-            _health = _health + amount
-        }
+    
+    func setEntityAttributesUnderstanding(_ newValue: Int) {
+        entityAttributes.understanding = newValue
     }
-
-    // Position and movement
-
-    var posX: Int {
-        get { _posX }
-        set { _posX = newValue }
+    
+    func setEntityAttributesEndurance(_ newValue: Int) {
+        entityAttributes.endurance = newValue
     }
-
-    var posY: Int {
-        get { _posY }
-        set { _posY = newValue }
+    
+    func setEntityAttributesLogic(_ newValue: Int) {
+        entityAttributes.logic = newValue
     }
-
-    var position: (x: Int, y: Int) {
-        get { (_posX, _posY) }
-        set { (_posX, _posY) = (newValue.x, newValue.y) }
+    
+    // MARK: Skills
+    
+    func setEntitySkills(_ newValue: EntitySkills) {
+        entitySkills = newValue
     }
-
-    var positionString: String {
-        return "x: \(_posX), y: \(_posY)"
+    
+    // MARK: Position
+    
+    func setEntityPosition(_ newValue: EntityPosition) {
+        entityPosition = newValue
     }
-
-    func moveBy(x deltaX: Int, y deltaY: Int) {
-        _posX += deltaX
-        _posY += deltaY
+    
+    func changeEntityPosition(x deltaX: Int, y deltaY: Int) {
+        entityPosition.x += deltaX
+        entityPosition.y += deltaY
     }
-
-    // Speech
-
+    
+    // MARK: Health
+    
+    func setEntityHealth(_ newValue: EntityHealth) {
+        entityHealth = newValue
+    }
+    
+    func changeEntityHealthValue(_ delta: Int){
+        entityHealth.value += delta
+    }
+    
+    // MARK: Future features below
+    
     func speak() -> String {
-        switch _type {
+        switch entityType {
         case .creature:
-            return "\(name) looks at you quizzically."
+            return "\(entityName.combined) looks at you quizzically."
         case .item:
-            return "\(name) is an inanimate object and can't speak."
+            return "\(entityName.combined) is an inanimate object and can't speak."
         default:
             let things = [
                 "Hello!",
