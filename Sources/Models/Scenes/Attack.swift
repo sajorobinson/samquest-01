@@ -4,13 +4,13 @@ struct Attack: Scene {
     mutating func run(with state: inout GameState) -> String {
         while !self.isSceneOver {
 
-            print("Choose something to attack.")
+            print(Phrases.chooseTo(.attack))
 
             let entitiesAtPosition = state.listEntitiesAtPosition(
                 x: state.playerCharacter.posX, y: state.playerCharacter.posY)
 
             if entitiesAtPosition.count == 0 {
-                return "There's nothing to attack here."
+                return Phrases.nothingTo(.attack)
             } else {
                 if let chosenEntity = Utilities.InputOutput.chooseFromList(
                     items: entitiesAtPosition,
@@ -18,12 +18,12 @@ struct Attack: Scene {
                 ) {
                     let totalDamage = Int.random(in: 1...5)
                     chosenEntity.changeHealth(by: totalDamage)
-                    return "You attack \(chosenEntity.name), dealing \(totalDamage) damage."
+                    return Phrases.youAttack(chosenEntity, totalDamage)
                 } else {
                     continue
                 }
             }
         }
-        return "Default attack."
+        return Phrases.defaultResponse
     }
 }

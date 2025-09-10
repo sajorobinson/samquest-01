@@ -21,6 +21,6 @@ struct Talk: Scene {
                 }
             }
         }
-        return "Default speech."
+        return Phrases.defaultResponse
     }
 }
