@@ -32,7 +32,7 @@ struct Info: Scene {
             
         } else {
             
-            payloadContainer.append("There's nothing here.")
+            payloadContainer.append(Strings.nothingHere)
             
         }
         

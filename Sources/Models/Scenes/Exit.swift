@@ -4,7 +4,7 @@ struct Exit: Scene {
     
     mutating func run(with state: inout GameState) -> String {
         
-        return "Goodbye!"
+        return Strings.goodbye
         
     }
     

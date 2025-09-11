@@ -2,6 +2,6 @@ enum Verbs: String {
     
     case examine = "examine"
     
-    case talk = "speak with"
+    case speak = "speak with"
     
 }

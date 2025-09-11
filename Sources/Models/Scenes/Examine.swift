@@ -44,7 +44,7 @@ struct Examine: Scene {
             
         }
         
-        return Strings.defaultText
+        return Strings.somethingWentWrong
         
     }
     

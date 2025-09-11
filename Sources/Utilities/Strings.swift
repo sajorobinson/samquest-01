@@ -1,6 +1,38 @@
 enum Strings {
     
-    static var menuHelpText: String {
+    // MARK: Static vars
+    
+    static var gameName: String {
+        
+        "SamQuest 01"
+        
+    }
+    
+    static var goodbye: String {
+        
+        "Goodbye!"
+        
+    }
+    
+    static var invalidInput: String {
+        
+        "Invalid input."
+        
+    }
+    
+    static var somethingWentWrong: String {
+        
+        "Something went wrong."
+        
+    }
+    
+    static var nothingHere: String {
+        
+        "There's nothing here."
+        
+    }
+    
+    static var helpMenu: String {
         
         """
          SamQuest01           Help
@@ -13,11 +45,7 @@ enum Strings {
         
     }
     
-    static var defaultText: String {
-        
-        "Default text. Something went wrong."
-        
-    }
+    // MARK: Functions
     
     static func chooseTo(_ verb: Verbs) -> String {
         
@@ -30,5 +58,10 @@ enum Strings {
         return "There's nothing to \(verb) here."
         
     }
+    
+
+    
+
+    
     
 }

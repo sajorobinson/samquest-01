@@ -1,4 +1,4 @@
-struct Talk: Scene {
+struct Speak: Scene {
     
     var isSceneOver: Bool = false
     
@@ -6,7 +6,7 @@ struct Talk: Scene {
         
         while !self.isSceneOver {
             
-            print("Choose something to speak to.")
+            print(Strings.chooseTo(.speak))
             
             let entitiesAtPosition = state.listEntitiesAtPosition(
                 
@@ -18,7 +18,7 @@ struct Talk: Scene {
             
             if entitiesAtPosition.count == 0 {
                 
-                return "There's nothing to speak to here."
+                return Strings.nothingTo(.speak)
                 
             } else {
                 
@@ -42,7 +42,7 @@ struct Talk: Scene {
             
         }
         
-        return Strings.defaultText
+        return Strings.somethingWentWrong
         
     }
     

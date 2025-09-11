@@ -12,7 +12,7 @@ struct Main {
         
         while !gameOver {
             
-            print("SamQuest01")
+            print(Strings.gameName)
             
             let readInput = Utilities.InputOutput.readInput().lowercased()
             
@@ -58,13 +58,13 @@ struct Main {
                     
                 case .talk:
                     
-                    var scene: Talk = Talk()
+                    var scene: Speak = Speak()
                     
                     print(scene.run(with: &state))
                     
                 case .help:
                     
-                    print(Strings.menuHelpText)
+                    print(Strings.helpMenu)
                     
                 case .quit:
                     
@@ -78,7 +78,7 @@ struct Main {
                 
             } else {
                 
-                print("Invalid input")
+                print(Strings.invalidInput)
                 
                 continue
                 
