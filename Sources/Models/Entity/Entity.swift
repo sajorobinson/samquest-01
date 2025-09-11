@@ -40,20 +40,17 @@ final class Entity {
         
     }
     
-    
     func setEntityDescriptionValue(_ newValue: String) {
         
         entityDescription.value = newValue
         
     }
-    
         
     func setEntityType(_ newValue: EntityType) {
         
         entityType = newValue
         
     }
-    
     
     // MARK: Position
     
@@ -63,7 +60,6 @@ final class Entity {
         
     }
     
-    
     func changeEntityPosition(x deltaX: Int, y deltaY: Int) {
         
         entityPosition.x += deltaX
@@ -71,7 +67,6 @@ final class Entity {
         entityPosition.y += deltaY
         
     }
-    
     
     // MARK: Future features below
     
