@@ -6,7 +6,7 @@ struct Examine: Scene {
         
         while !self.isSceneOver {
             
-            print(Text.chooseTo(.examine))
+            print(Strings.chooseTo(.examine))
             
             let x = state.playerCharacter.entityPosition.x
             
@@ -16,7 +16,7 @@ struct Examine: Scene {
             
             if entitiesAtPosition.count == 0 {
                 
-                return Text.nothingTo(.examine)
+                return Strings.nothingTo(.examine)
                 
             }
             
@@ -44,7 +44,7 @@ struct Examine: Scene {
             
         }
         
-        return Text.defaultResponseText
+        return Strings.defaultText
         
     }
     
