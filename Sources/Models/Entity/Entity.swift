@@ -101,6 +101,8 @@ final class Entity {
                 
                 "Talkin' never did me good.",
                 
+                "What's up chuck?"
+                
             ]
             
             return things.randomElement() ?? "Sorry, I didn't quite catch that."
