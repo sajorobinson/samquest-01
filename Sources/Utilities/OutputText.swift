@@ -1,6 +1,7 @@
 struct OutputText {
     
     static var menuHelpText: String {
+        
         """
          SamQuest01           Help
          -------------------------
@@ -9,6 +10,7 @@ struct OutputText {
          a - west      l - talk
          d - east      q = quit
         """
+        
     }
     
     static var defaultResponseText: String {

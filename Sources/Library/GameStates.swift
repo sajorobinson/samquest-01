@@ -8,9 +8,9 @@ extension GameState {
             
             entities: Factory.spawnCharacters()
             
-            + Factory.spawnCreatures()
+                + Factory.spawnCreatures()
             
-            + Factory.spawnItems(),
+                + Factory.spawnItems(),
             
             locations: Factory.createLocations()
         )
