@@ -16,12 +16,14 @@ enum Strings {
     }
     static var helpMenu: String {
         """
-         SamQuest01           Help
-         -------------------------
-         w - north     j - examine
-         s - south     i - info
-         a - west      l - talk
-         d - east      q = quit
+        \n
+        SamQuest01           Help
+        -------------------------
+        w - north     j - examine
+        s - south     i - info
+        a - west      l - talk
+        d - east      q = quit
+        \n
         """
     }
     static func chooseTo(_ verb: Verbs) -> String {
