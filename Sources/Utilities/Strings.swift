@@ -1,5 +1,4 @@
 enum Strings {
-    // MARK: Static vars
     static var gameName: String {
         "SamQuest 01"
     }
@@ -25,7 +24,6 @@ enum Strings {
          d - east      q = quit
         """
     }
-    // MARK: Functions
     static func chooseTo(_ verb: Verbs) -> String {
         return "Choose something to \(verb)."
     }
