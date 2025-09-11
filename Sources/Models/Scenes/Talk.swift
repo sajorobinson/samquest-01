@@ -42,7 +42,7 @@ struct Talk: Scene {
             
         }
         
-        return OutputText.defaultResponseText
+        return Text.defaultResponseText
         
     }
     

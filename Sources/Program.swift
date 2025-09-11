@@ -16,7 +16,7 @@ struct Main {
             
             let readInput = Utilities.InputOutput.readInput().lowercased()
             
-            if let userInput = UserInput(rawValue: readInput) {
+            if let userInput = MenuOptions(rawValue: readInput) {
                 
                 switch userInput {
                     
@@ -64,7 +64,7 @@ struct Main {
                     
                 case .help:
                     
-                    print(OutputText.menuHelpText)
+                    print(Strings.menuHelpText)
                     
                 case .quit:
                     

@@ -1,4 +1,4 @@
-struct OutputText {
+enum Strings {
     
     static var menuHelpText: String {
         
@@ -13,19 +13,19 @@ struct OutputText {
         
     }
     
-    static var defaultResponseText: String {
+    static var defaultText: String {
         
-        "Default response"
+        "Default text. Something went wrong."
         
     }
     
-    static func chooseTo(_ verb: Verb) -> String {
+    static func chooseTo(_ verb: Verbs) -> String {
         
         return "Choose something to \(verb)."
         
     }
     
-    static func nothingTo(_ verb: Verb) -> String {
+    static func nothingTo(_ verb: Verbs) -> String {
         
         return "There's nothing to \(verb) here."
         

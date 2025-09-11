@@ -1,4 +1,4 @@
-enum UserInput: String {
+enum MenuOptions: String {
     
     // Movement commands
     

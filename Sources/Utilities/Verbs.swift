@@ -1,4 +1,4 @@
-enum Verb: String {
+enum Verbs: String {
     
     case examine = "examine"
     

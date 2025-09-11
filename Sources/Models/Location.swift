@@ -20,4 +20,10 @@ class Location {
         
     }
     
+    func getRandomDescription(from: [String]) -> String {
+        
+        return from.randomElement() ?? Strings.defaultText
+        
+    }
+    
 }
