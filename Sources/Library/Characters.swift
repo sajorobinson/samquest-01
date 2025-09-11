@@ -4,11 +4,11 @@ extension Entity {
         
         Entity(
             
-            entityName: EntityName(value: "Sam Robinson"),
+            entityName: EntityName("Sam Robinson"),
             
             entityDescription: EntityDescription(
                 
-                text: "The main character of this game."
+                "The main character of this game."
                 
             ),
             
@@ -24,12 +24,12 @@ extension Entity {
         
         Entity(
             
-            entityName: EntityName(value: "Yu Miri"),
+            entityName: EntityName("Yu Miri"),
             
             entityDescription: EntityDescription(
-                
-                text: "The author of the book 'The End of August'."
-                
+            
+                "The author of the book 'The End of August'."
+            
             ),
             
             entityType: .character,
@@ -39,5 +39,5 @@ extension Entity {
         )
         
     }
-    
+        
 }

@@ -4,13 +4,9 @@ extension Entity {
         
         Entity(
             
-            entityName: EntityName(value: "Goblin"),
+            entityName: EntityName("Goblin"),
             
-            entityDescription: EntityDescription(
-                
-                text: "A friendly goblin."
-                
-            ),
+            entityDescription: EntityDescription("A friendly goblin."),
             
             entityType: .character,
             

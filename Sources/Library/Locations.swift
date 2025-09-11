@@ -11,6 +11,7 @@ extension Location {
             x: 0,
             
             y: 0
+        
         )
         
     }
@@ -26,6 +27,7 @@ extension Location {
             x: 0,
             
             y: 1
+        
         )
         
     }

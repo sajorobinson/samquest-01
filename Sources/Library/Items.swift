@@ -4,13 +4,13 @@ extension Entity {
         
         Entity(
         
-            entityName: EntityName(value: "The End of August"),
+            entityName: EntityName("The End of August"),
             
             entityDescription: EntityDescription(
             
-                text: "A book written by the author Yu Miri"
-            ),
+                "A book written by the author Yu Miri"
             
+            ),
             
             entityType: .item,
             
@@ -19,6 +19,7 @@ extension Entity {
                 x: 0,
                 
                 y: 0
+            
             )
             
         )
@@ -29,13 +30,13 @@ extension Entity {
         
         Entity(
         
-            entityName: EntityName(value: "Map"),
+            entityName: EntityName("Map"),
             
             entityDescription: EntityDescription(
+                
+                "This map leads to buried treasure."
             
-                text: "This map leads to buried treasure."
             ),
-            
             
             entityType: .item,
             
@@ -44,6 +45,7 @@ extension Entity {
                 x: 0,
                 
                 y: 0
+            
             )
             
         )
