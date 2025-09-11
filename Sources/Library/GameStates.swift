@@ -13,6 +13,7 @@ extension GameState {
                 + Factory.spawnItems(),
             
             locations: Factory.createLocations()
+        
         )
         
     }

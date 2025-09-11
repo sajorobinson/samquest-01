@@ -6,19 +6,19 @@ final class Entity {
     
     private(set) var entityDescription: EntityDescription
     
-    private(set) var entityType: EntityType
-    
     private(set) var entityPosition: EntityPosition
+    
+    private(set) var entityType: EntityType
     
     init(
     
-        entityName: EntityName,
+        _ entityName: EntityName,
         
-        entityDescription: EntityDescription,
+        _ entityDescription: EntityDescription,
+                
+        _ entityPosition: EntityPosition,
         
-        entityType: EntityType,
-        
-        entityPosition: EntityPosition
+        _ entityType: EntityType
     
     ) {
         
@@ -26,9 +26,9 @@ final class Entity {
         
         self.entityDescription = entityDescription
         
-        self.entityType = entityType
-        
         self.entityPosition = entityPosition
+
+        self.entityType = entityType
         
     }
         

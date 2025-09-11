@@ -4,19 +4,19 @@ extension Entity {
         
         Entity(
             
-            entityName: EntityName("Goblin"),
+            EntityName("Goblin"),
             
-            entityDescription: EntityDescription("A friendly goblin."),
+            EntityDescription("A friendly goblin."),
             
-            entityType: .character,
-            
-            entityPosition: EntityPosition(
+            EntityPosition(
                 
                 x: Int.random(min:0, max:5),
                 
                 y: Int.random(min: 0, max: 5)
                 
             ),
+            
+            .character
             
         )
         

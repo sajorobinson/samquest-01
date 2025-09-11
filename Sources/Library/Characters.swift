@@ -4,18 +4,14 @@ extension Entity {
         
         Entity(
             
-            entityName: EntityName("Sam Robinson"),
+            EntityName("Sam Robinson"),
             
-            entityDescription: EntityDescription(
-                
-                "The main character of this game."
-                
-            ),
+            EntityDescription("The main character of this game."),
             
-            entityType: .character,
+            EntityPosition(x: 0, y: 0),
             
-            entityPosition: EntityPosition(x: 0, y: 0)
-            
+            .character
+        
         )
         
     }
@@ -24,17 +20,13 @@ extension Entity {
         
         Entity(
             
-            entityName: EntityName("Yu Miri"),
+            EntityName("Yu Miri"),
             
-            entityDescription: EntityDescription(
+            EntityDescription("The author of the book 'The End of August'."),
             
-                "The author of the book 'The End of August'."
-            
-            ),
-            
-            entityType: .character,
-            
-            entityPosition: EntityPosition(x: 0, y: 0)
+            EntityPosition(x: 0, y: 0),
+
+            .character
             
         )
         

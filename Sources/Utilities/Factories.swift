@@ -42,8 +42,6 @@ enum Factory {
         
         items += [Entity.book]
         
-        items += [Entity.map]
-        
         return items
         
     }
