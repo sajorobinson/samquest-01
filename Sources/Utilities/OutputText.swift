@@ -19,15 +19,21 @@ struct OutputText {
     }
     
     static var defaultResponseText: String {
+        
         "Default response"
+        
     }
     
     static func chooseTo(_ verb: Verb) -> String {
+        
         return "Choose something to \(verb)."
+        
     }
     
     static func nothingTo(_ verb: Verb) -> String {
+        
         return "There's nothing to \(verb) here."
+        
     }
     
 }
