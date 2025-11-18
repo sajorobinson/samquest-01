@@ -1,4 +1,5 @@
 import Foundation
+
 @main
 struct Main {
     static func main() {
@@ -7,7 +8,7 @@ struct Main {
         while !gameOver {
             print(Strings.gameName)
             let readInput = Utilities.InputOutput.readInput().lowercased()
-            if let userInput = MenuOptions(rawValue: readInput) {
+            if let userInput = MenuOption(rawValue: readInput) {
                 switch userInput {
                 case .north:
                     state.playerCharacter.changeEntityPosition(x: 0, y: 1)

@@ -1,4 +1,4 @@
-enum MenuOptions: String {
+enum MenuOption: String {
     case north = "w"
     case south = "s"
     case west = "a"
